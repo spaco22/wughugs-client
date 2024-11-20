@@ -48,12 +48,20 @@ No external APIs will be used for the initial implementation.
 
 ### Sitemap
 
-- Home page
-- About page
-- Tea details page
+### Home page
+![Home Page](mockups/HomePage.jpeg)
+
+### About page
+![About Page](mockups/AboutPage.jpeg)
+
+### Tea details page
+![Tea Details Page](mockups/TeaDetailsPage.jpeg)
 
 ### Mockups
 
+- Home page
+- About page
+- Tea details page
 
 
 ### Data
@@ -140,7 +148,7 @@ No authentication will be implemented in the initial version.
 
 - Integration with Shopify API for e-commerce functionality
 - User authentication system
-- Flavor combination recommendation feature (Food pairings API)
+- Flavor combination recommendation feature (Foodpairings API)
 - Search and filter functionality for teas
 - User profiles and favorite tea lists
 - Integration with sustainable tea vendors
