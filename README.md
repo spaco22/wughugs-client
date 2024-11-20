@@ -14,6 +14,18 @@
 
 ### Tech Stack
 
+- React
+- TypeScript
+- MySQL
+- Express
+- Client libraries: 
+    - react
+    - react-router
+    - axios
+- Server libraries:
+    - knex
+    - express
+
 ### APIs
 
 ### Sitemap
