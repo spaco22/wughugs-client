@@ -30,6 +30,12 @@
 
 ### Sitemap
 
+- Home page
+- About page
+- Tea details page
+- Post a tea
+- Shop for teas
+
 ### Mockups
 
 ### Data
