@@ -102,7 +102,7 @@ GET /api/users/{userId}/pets
 - Get all user wugs
 
 Response:
-![GET user wugs](sampledata/GET/userswugs.png)
+![GET user wugs](sampledata/GET/userwugs.png)
 
 POST /api/users
 - Add a user
