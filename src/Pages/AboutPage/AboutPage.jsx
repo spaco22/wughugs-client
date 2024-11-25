@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 import "./AboutPage.scss";
 
 function AboutPage() {
   return (
-    <div>AboutPage</div>
-  )
+    <>
+      <h1>About Us</h1>
+    </>
+  );
 }
 
-export default AboutPage
+export default AboutPage;
