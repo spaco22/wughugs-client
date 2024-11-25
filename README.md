@@ -1,27 +1,29 @@
-# BRAINSTATION
+# BRAINSTATION CAPSTONE PROJECT
 # Project Title
-TeaHub: A Tea Exploration Tool
+WugHugs
 
 ## Overview
 
-TeaHub is a platform designed for tea enthusiasts to explore different tea types, share comments, and discover flavor combinations. This project aims to create an engaging and informative experience for tea lovers while promoting sustainable tea consumption.
+WugHugs is a platform designed wug friends (owners of unconventional pets such as different arachnids, insects, etc.) to create a profile, add their pet(s), and keep an online record/journal of how they care for the pets with the goal of sharing different techniques with other pet owners. 
 
 ### Problem
 
-Many tea enthusiasts struggle to find comprehensive information about various tea types and their flavor profiles in one place. Additionally, there's a growing demand for sustainable tea options. TeaHub addresses these issues by providing a centralized platform for tea exploration and education.
+It can be hard and overwhelming to find a comprehensive and approachable guide for how to care for unconventional pets. The WugHugs journal is a great entry point for those that are new to caring for wugs, and can expose people to different ways of caring for their pets. It is also a really fun hobby, and keeping a record of your pets, their growth, and any other details can feel very rewarding and fun! 
+
 
 ### User Profile
 
-- Tea enthusiasts looking to expand their knowledge
-- Newcomers to the tea world seeking guidance
-- Environmentally conscious consumers interested in sustainable tea options
+- People curious about what it would be like to own different wugs
+- Wug owners
+
 
 ### Features
 
-- As a user, I want to view a list of different tea types
-- As a user, I want to see detailed information about each tea type
-- As a user, I want to add comments to tea types
-- As a user, I want to read comments from other users about tea types
+- As a user, I want to be able to explore different wugs
+- As a user, I want to be able to create a profile
+- As a user with a profile, I want to be able to add wugs to my profile (with different details and an image!)
+- As a user with a profile, I want to be able to keep a journal for each wug
+_ As a user, I want to be able to comment on other people's wugs
 
 ## Implementation
 
@@ -54,77 +56,71 @@ No external APIs will be used for the initial implementation.
 ### About page
 ![About Page](mockups/AboutPage.jpeg)
 
-### Tea details page
-![Tea Details Page](mockups/TeaDetailsPage.jpeg)
+### Login page
+![About Page](mockups/LoginPage.jpeg)
+
+### User Profile page
+![About Page](mockups/UserProfilePage.jpeg)
+
+### Add Wug page
+![About Page](mockups/AddWugPage.jpeg)
+
+### Wug details page
+![Wug Details Page](mockups/WugDetailsPage.jpeg)
 
 ### Mockups
 
 - Home page
 - About page
-- Tea details page
+- Create a profile page
+- User login page
+- User profile page
+- Wug details page
 
 
 ### Data
 
 The database will include the following tables:
-- Teas (id, name, type, description, origin, brewing_instructions)
-- Comments (id, tea_id, user_name, content, created_at)
+- Users (id, name, location)
+- Wugs (id, user_id, name, species, common_names)
 
 ### Endpoints
 
-GET /api/teas
-- Get all teas
+GET /api/users
+- Get all users
 
 Response:
-[
-  {
-    "id": 1,
-    "name": "Earl Grey",
-    "type": "Black",
-    "description": "Flavored with oil of bergamot",
-    "origin": "China"
-  },
-  ...
-]
+![GET users](sampledata/GET/users.png)
 
-GET /api/teas/:id
-- Get tea by id
+GET /api/users/{userId}
+- Get user by ID
 
 Response:
-{
-  "id": 1,
-  "name": "Earl Grey",
-  "type": "Black",
-  "description": "Flavored with oil of bergamot",
-  "origin": "China",
-  "brewing_instructions": "Steep for 3-5 minutes at 95°C",
-  "comments": [
-    {
-      "id": 1,
-      "user_name": "TeaLover",
-      "content": "A classic favorite!",
-      "created_at": "2023-11-19T18:00:00Z"
-    },
-    ...
-  ]
-}
+![GET users](sampledata/GET/userbyid.png)
 
-POST /api/teas/:id/comments
-- Add a comment to a tea
+GET /api/users/{userId}/pets
+- Get all user wugs
+
+Response:
+![GET user wugs](sampledata/GET/userswugs.png)
+
+POST /api/users
+- Add a user
 
 Request body:
-{
-  "user_name": "TeaEnthusiast",
-  "content": "Great aroma and flavor profile!"
-}
+![POST user](sampledata/POST/userreq.png)
 
 Response:
-{
-  "id": 2,
-  "user_name": "TeaEnthusiast",
-  "content": "Great aroma and flavor profile!",
-  "created_at": "2023-11-19T18:05:00Z"
-}
+![POST user](sampledata/POST/userres.png)
+
+POST /api/users/{userId}/pets
+- Add a wug
+
+Request body:
+![POST wug](sampledata/POST/wugreq.png)
+
+Response:
+![POST wug](sampledata/POST/wugres.png)
 
 ### Auth
 
@@ -133,16 +129,17 @@ No authentication will be implemented in the initial version.
 ## Roadmap
 
 1. Set up React project with Vite
-2. Create Express server and set up routes
+2. Create Express server and set up routes (users, wugs, user comments)
 3. Set up MySQL database and create migrations
 4. Create Home Page
 5. Create About Page
-6. Implement tea listing functionality (frontend and backend)
-7. Develop tea details page
-8. Implement commenting system
-8. Style the application
-9. Testing and bug fixes
-10. Deployment
+6. Create a create profile page
+7. Create user login page
+8. Create user profile page
+8. Create wug details page
+9. Add styling
+10. Testing and bug fixes
+11. Deployment
 
 ## Nice-to-haves
 
