@@ -1,7 +1,25 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./Pages/HomePage/HomePage";
+import AboutPage from "./Pages/AboutPage/AboutPage";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
+import Header from "./components/Header/Header";
+
 function App() {
   return (
     <>
-      <h1>Welcome to my capstone!</h1>
+      <BrowserRouter>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+
+          <Route path="/home" element={<Navigate to="/" />} />
+
+          <Route path="/about" element={<AboutPage />} />
+
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
