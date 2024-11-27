@@ -3,6 +3,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import AboutPage from "./Pages/AboutPage/AboutPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import NewUserPage from "./Pages/NewUserPage/NewUserPage";
+import UserPage from "./Pages/UserPage/UserPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -23,6 +24,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
 
           <Route path="/new-user" element={<NewUserPage />} />
+
+          <Route path="/user" element={<UserPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
