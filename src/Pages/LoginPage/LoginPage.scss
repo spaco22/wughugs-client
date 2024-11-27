@@ -2,3 +2,15 @@
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+
+.login {
+
+    &__img {
+        display: flex;
+        justify-self: center;
+        background-color: #FA9020;
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+    }
+}
