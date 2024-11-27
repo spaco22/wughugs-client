@@ -13,7 +13,7 @@
 
 .wug {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
 
     &__img{
         background-color: $wugorange;
@@ -21,9 +21,13 @@
         height: 10rem;
         border-radius: 1rem;
         background-image: url("../../assets/icons/login-w.svg");
-        background-size: 3.5rem;
+        background-size: 5rem;
         background-repeat: no-repeat;
         background-position: center;
+    }
+
+    &__species {
+        margin: 0;
     }
 }
 
