@@ -1,7 +1,16 @@
 import React from 'react';
 import "./LoginPage.scss";
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
+
+
+    const nav = useNavigate();
+
+    const handleNewClick = (event) => {
+        nav("/new-user");
+    }
+
   return (
     <main className="login">
         <h1 className="login__title">Login</h1>
@@ -23,7 +32,7 @@ function LoginPage() {
 
         <section className="new-user">
         <p className="new-user__text">New User?</p>
-        <button className="new-user__button">Create account</button>
+        <button className="new-user__button" onClick={handleNewClick}>Create account</button>
         </section>
 
     </main>
