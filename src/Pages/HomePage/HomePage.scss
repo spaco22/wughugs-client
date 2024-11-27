@@ -1,0 +1,26 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.homepage {
+    &__title {
+        margin: 2rem;
+    }
+}
+
+.cards {
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: #FA9020;
+    margin: 1rem;
+    border-radius: .3125rem;
+    height: 15rem;
+
+    &__title {
+        color: white;
+        padding: 1rem;
+    }
+}
