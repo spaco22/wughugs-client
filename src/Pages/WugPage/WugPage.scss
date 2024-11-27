@@ -5,10 +5,19 @@
 
 .wug-page {
     margin: 1rem;
+
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
 }
 
 .wug__details {
+    margin: 1rem 0;
     display: flex;
+    justify-content: space-between;
+    // align-items: center;
 }
 
 .wug {
@@ -19,18 +28,48 @@
         background-color: $wugorange;
         width: 10rem;
         height: 10rem;
-        border-radius: 1rem;
-        background-image: url("../../assets/icons/login-w.svg");
-        background-size: 5rem;
+        border-radius: 50%;
+        background-image: url("../../assets/icons/wug-w.svg");
+        background-size: 8rem;
         background-repeat: no-repeat;
         background-position: center;
+    }
+
+    &__name {
+        margin: 1rem 0 0.5rem;
     }
 
     &__species {
         margin: 0;
     }
+
+    &__age, &__type, &__common-names {
+        margin: 0;
+        font-size: .75rem;
+    }
 }
 
-.user {
+.wug-user {
     margin: 0;
+    align-self: center;
+
+    &__img {
+        background-color: $wugorange;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.5rem;
+        background-image: url("../../assets/icons/login-w.svg");
+        background-size: 2rem;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &__name {
+        margin: 0.25rem 0;
+    }
+
+    &__location {
+        margin: 0;
+        font-size: .625rem;
+    }
 }
