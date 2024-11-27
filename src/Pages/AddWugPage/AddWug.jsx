@@ -3,7 +3,13 @@ import "./AddWug.scss";
 
 function AddWug() {
   return (
-    <div>AddWug</div>
+    <main className="add-wug">
+        <h2 className="add-wug__title">Add</h2>
+
+        <form action="submit" className="wug-form">
+            
+        </form>
+    </main>
   )
 }
 
