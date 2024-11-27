@@ -19,9 +19,12 @@ function LoginPage() {
             <input type="text" className="form__input" name="password"/>
 
             <button className="form__button">Login</button>
-
-
         </form>
+
+        <section className="new-user">
+        <p className="new-user__text">New User?</p>
+        <button className="new-user__button">Create an account</button>
+        </section>
 
     </main>
   )
