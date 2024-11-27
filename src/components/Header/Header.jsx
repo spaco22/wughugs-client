@@ -5,7 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 function Header() {
   return (
     <header>
-      <h1 className="header__title">WugHugs</h1>
+      <h1 className="header__title">Wug Hugs</h1>
 
 
         <nav className="header__nav">
