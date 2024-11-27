@@ -8,6 +8,21 @@ function LoginPage() {
 
         <div className="login__img"></div>
 
+        <form className="form" action="submit">
+            <label htmlFor="name" className="form__label">Name</label>
+            <input type="text" className="form__input" name="name"/>
+
+            <label htmlFor="email" className="form__label">Email</label>
+            <input type="text" className="form__input" name="email" />
+
+            <label htmlFor="password" className="form__label">Password</label>
+            <input type="text" className="form__input" name="password"/>
+
+            <button className="form__button">Login</button>
+
+
+        </form>
+
     </main>
   )
 }
