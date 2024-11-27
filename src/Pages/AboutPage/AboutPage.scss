@@ -1,0 +1,40 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.statements {
+  margin: 2rem 1rem;
+}
+
+.statement {
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 3rem;
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  &__title {
+    @include tablet {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &__values {
+    padding-left: 1rem;
+    @include tablet {
+      padding: 1.5rem;
+      width: 100%;
+    }
+  }
+}
