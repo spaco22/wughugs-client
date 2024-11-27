@@ -4,6 +4,7 @@ import AboutPage from "./Pages/AboutPage/AboutPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import NewUserPage from "./Pages/NewUserPage/NewUserPage";
 import UserPage from "./Pages/UserPage/UserPage";
+import WugPage from "./Pages/WugPage/WugPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -26,6 +27,8 @@ function App() {
           <Route path="/new-user" element={<NewUserPage />} />
 
           <Route path="/user" element={<UserPage />} />
+
+          <Route path="/wug" element={<WugPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

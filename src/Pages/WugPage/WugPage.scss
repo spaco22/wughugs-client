@@ -1,0 +1,36 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.wug-page {
+    margin: 1rem;
+}
+
+.wug__details {
+    display: flex;
+}
+
+.wug {
+    display: flex;
+    gap: 1rem;
+
+    &__img{
+        background-color: $wugorange;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 1rem;
+        background-image: url("../../assets/icons/login-w.svg");
+        background-size: 5rem;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &__species {
+        margin: 0;
+    }
+}
+
+.user {
+    margin: 0;
+}
