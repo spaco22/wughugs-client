@@ -17,7 +17,7 @@ function Footer() {
         <NavLink to="/about" className="footer__link">
         <img src={About} alt="about icon" className="footer__link-img" />
         </NavLink>
-        <NavLink to="/" className="footer__link">
+        <NavLink to="/login" className="footer__link">
         <img src={Login} alt="login icon" className="footer__link-img" />
         </NavLink>
 
