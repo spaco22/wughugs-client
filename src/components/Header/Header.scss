@@ -1,3 +1,10 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/global" as *;
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #FD3F92;
+}
