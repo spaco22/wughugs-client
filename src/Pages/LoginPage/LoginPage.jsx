@@ -23,7 +23,7 @@ function LoginPage() {
 
         <section className="new-user">
         <p className="new-user__text">New User?</p>
-        <button className="new-user__button">Create an account</button>
+        <button className="new-user__button">Create account</button>
         </section>
 
     </main>
