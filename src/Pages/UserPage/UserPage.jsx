@@ -38,7 +38,9 @@ function UserPage() {
         </section>
         </div>
 
-        <button className="user__button-wug">Add Wug</button>
+        <div className="user-buttons">
+        <button className="user-button__wug">Add Wug</button>
+        </div>
     </main>
   )
 }
