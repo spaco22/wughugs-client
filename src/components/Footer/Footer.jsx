@@ -1,9 +1,9 @@
 import React from 'react';
 import "./Footer.scss";
 import { NavLink } from "react-router-dom";
-import Home from "../../assets/icons/home.svg";
-import About from "../../assets/icons/about.svg";
-import Login from "../../assets/icons/login.svg";
+import Home from "../../assets/icons/home-w.svg";
+import About from "../../assets/icons/about-w.svg";
+import Login from "../../assets/icons/login-w.svg";
 
 function Footer() {
   return (
