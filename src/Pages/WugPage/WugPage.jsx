@@ -24,6 +24,11 @@ function WugPage() {
 
       </article>
       </section>
+
+      <div className="wug-page__buttons">
+        <button className="wug-page__delete">Delete</button>
+        <button className="wug-page__edit">Edit</button>
+      </div>
       
 
     </main>
