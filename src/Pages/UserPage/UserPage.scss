@@ -44,7 +44,7 @@
 
 }
 
-.wugs {
+.user-wugs {
     margin: 4rem 1rem;
 
     &__gallery {
@@ -53,7 +53,7 @@
     }
 }
 
-.wug {
+.user-wug {
     &__img {
         background-color: $wugorange;
         width: 5rem;
@@ -72,4 +72,9 @@
     &__species {
         margin: 0.5rem 0 1rem;
     }
+}
+
+.user-buttons {
+    display: flex;
+    justify-content: flex-end;
 }

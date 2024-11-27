@@ -15,30 +15,32 @@ function UserPage() {
         </article>
         </section>
 
-        <div className="wugs">
-        <h2 className="wugs__title">Wugs</h2>
-        <section className="wugs__gallery">
-        <article className="wug">
-            <div className="wug__img"></div>
-            <h4 className="wug__name">Charlotte</h4>
-            <p className="wug__species">pider</p>
+        <div className="user-wugs">
+        <h2 className="user-wugs__title">Wugs</h2>
+        <section className="user-wugs__gallery">
+        <article className="user-wug">
+            <div className="user-wug__img"></div>
+            <h4 className="user-wug__name">Charlotte</h4>
+            <p className="wug__species">tarantula</p>
         </article>
 
-        <article className="wug">
-            <div className="wug__img"></div>
-            <h4 className="wug__name">Charlie</h4>
-            <p className="wug__species">pider</p>
+        <article className="user-wug">
+            <div className="user-wug__img"></div>
+            <h4 className="user-wug__name">Charlie</h4>
+            <p className="wug__species">tarantula</p>
         </article>
 
-        <article className="wug">
-            <div className="wug__img"></div>
-            <h4 className="wug__name">Mealwormies</h4>
-            <p className="wug__species">meal worms</p>
+        <article className="user-wug">
+            <div className="user-wug__img"></div>
+            <h4 className="user-wug__name">Mealwormies</h4>
+            <p className="user-wug__species">meal worms</p>
         </article>
         </section>
         </div>
 
-        <button className="user__button-wug">Add Wug</button>
+        <div className="user-buttons">
+        <button className="user-button__wug">Add Wug</button>
+        </div>
     </main>
   )
 }
