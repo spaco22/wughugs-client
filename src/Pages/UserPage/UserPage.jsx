@@ -40,8 +40,8 @@ useEffect(()=> {
         <div className="user__img"></div>
 
         <article className="user__text">
-        <h3 className="user__name">Sofia</h3>
-        <p className="user__location">Hornby Island</p>
+        <h3 className="user__name">{ user.user_name }</h3>
+        <p className="user__location">{ user.user_location }</p>
         </article>
         </section>
 
