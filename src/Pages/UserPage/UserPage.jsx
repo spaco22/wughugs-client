@@ -34,14 +34,14 @@ useEffect(()=> {
 
   return (
     <main className="user-page">
-        <h1 className="user-page__title">Welcome back!</h1>
+        <h1 className="user-page__title">Welcome back, username!</h1>
 
         <section className="user">
         <div className="user__img"></div>
 
         <article className="user__text">
         <h3 className="user__name">{ user.user_name }</h3>
-        <p className="user__location">{ user.user_location }</p>
+        <p className="user__location">user city, province{ user.user_location }</p>
         </article>
         </section>
 
