@@ -1,17 +1,47 @@
 import React from 'react';
 import "./UserPage.scss";
+import axios from "axios";
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function UserPage() {
+
+  const { userId } = useParams();
+  const baseURL = import.meta.env.VITE_API_URL;
+  // console.log(userId);
+
+  const [user, setUser] = useState({});
+
+async function getUser(userId) {
+  if(!userId) {
+    return;
+  }
+
+  try {
+      const response = await axios.get(`${baseURL}/users/${userId}`);
+      // console.log(response.data);
+      setUser(response.data);
+  
+  } catch(error) {
+    console.error(`Unable to get data for user with id ${userId}`, error);
+  }
+}
+
+useEffect(()=> {
+  getUser(userId);
+}, [userId]);
+
+
   return (
     <main className="user-page">
-        <h1 className="user-page__title">Welcome back!</h1>
+        <h1 className="user-page__title">Welcome back, username!</h1>
 
         <section className="user">
         <div className="user__img"></div>
 
         <article className="user__text">
-        <h3 className="user__name">Sofia</h3>
-        <p className="user__location">Hornby Island</p>
+        <h3 className="user__name">{ user.user_name }</h3>
+        <p className="user__location">user city, province{ user.user_location }</p>
         </article>
         </section>
 
