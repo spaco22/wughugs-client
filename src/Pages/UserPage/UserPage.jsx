@@ -8,9 +8,9 @@ function UserPage() {
 
   const { userId } = useParams();
   const baseURL = import.meta.env.VITE_API_URL;
-  console.log(userId);
+  // console.log(userId);
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
 
 async function getUser(userId) {
   if(!userId) {
@@ -19,7 +19,7 @@ async function getUser(userId) {
 
   try {
       const response = await axios.get(`${baseURL}/users/${userId}`);
-      console.log(response.data);
+      // console.log(response.data);
       setUser(response.data);
   
   } catch(error) {
