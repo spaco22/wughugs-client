@@ -27,17 +27,49 @@ function NewUserPage() {
     const newPass = event.target.pass.value;
     const newConfirmPass = event.target.confirmPass.value;
 
+    // if ( !newUsername || !newEmail || ! newPass || !newConfirmPass) {
+    //   alert("Please ensure all fields are filled!");
+    //   return;
+    // }
 
-    // if ( )
+    if (!newUsername) {
+      alert("Please provide a username");
+    }
+
+    if (!newEmail) {
+      alert("Please provide an email address");
+    }
+
+    if (!newPass) {
+      alert("Please provide a password");
+    }
+
+    if (!newConfirmPass) {
+      alert("Please confirm you password");
+    }
+
+    if (newPass !== newConfirmPass) {
+      alert("Passwords do not match!");
+    }
+
+    const newUser = {
+      user_firstname: "",
+      user_lastname: "",
+      user_username: newUsername,
+      user_city: "",
+      user_province: "",
+      user_email: newEmail,
+      user_pass: newPass,
+      user_pass_confirm: newConfirmPass,
+      user_img: "",
+    };
   };
 
   const handleLoginClick = (event) => {
     nav("/login");
   };
 
-  useEffect(() => {
-    ;
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <main className="new-user">
@@ -45,16 +77,38 @@ function NewUserPage() {
 
       <div className="new-user__img"></div>
 
-      <form className="form" action="submit" onSubmit={ handleAddUserSubmit }>
-        <label htmlFor="name" className="form__label">
+      <form className="form" action="submit" onSubmit={handleAddUserSubmit}>
+
+      <label htmlFor="firstName" className="form__label">
+          First Name
+        </label>
+        <input type="text" className="form__input" name="firstName" />
+
+        <label htmlFor="lastName" className="form__label">
+          Last Name
+        </label>
+        <input type="text" className="form__input" name="lastName" />
+
+
+        <label htmlFor="username" className="form__label">
           Username
         </label>
-        <input type="text" className="form__input" name="name" />
+        <input type="text" className="form__input" name="username" />
 
         <label htmlFor="email" className="form__label">
           Email
         </label>
         <input type="text" className="form__input" name="email" />
+        
+        <label htmlFor="city" className="form__label">
+          City
+        </label>
+        <input type="text" className="form__input" name="city" />
+
+        <label htmlFor="Province" className="form__label">
+          Province
+        </label>
+        <input type="text" className="form__input" name="province" />
 
         <label htmlFor="pass" className="form__label">
           Password
