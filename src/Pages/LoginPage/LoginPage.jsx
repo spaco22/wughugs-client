@@ -6,12 +6,28 @@ import { useEffect, useState } from "react";
 
 function LoginPage() {
 
+  const baseURL = import.meta.env.VITE_API_URL;
+  const nav = useNavigate();
+  const [users, setUsers] = useState([]);
 
-    const nav = useNavigate();
+  async function getUsers() {
+    try {
+      const response = await axios.get(`${baseURL}/users`);
+      console.log(response.data);
+      setUsers(response.data);
+
+    } catch(error) {
+      console.error("Error retrieving users data", error);
+    }
+  };
 
     const handleNewClick = (event) => {
         nav("/new-user");
     }
+
+    useEffect(() => {
+      getUsers();
+    }, []);
 
   return (
     <main className="login">
