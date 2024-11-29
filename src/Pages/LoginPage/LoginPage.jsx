@@ -24,14 +24,30 @@ function LoginPage() {
   const handleLoginSubmit = (event) => {
     event.preventDefault();
 
-    if(!event.target.name.value) {
+    const inputName = event.target.name.value;
+    const inputPass = event.target.password.value;
+
+    if(!inputName) {
       alert("Please be sure to fill in your username OR email");
       return
     }
-    if(!event.target.password.value) {
+    if(!inputPass) {
       alert("Please be sure to fill in your password");
       return
     }
+
+  
+
+    for (let i = 0; i < users.length; i++) {
+      if( (users[i].user_username || users[i].user_email) === inputName  && users[i].user_pass === inputPass ) {
+        nav("/:username");
+        return;
+      } else {
+        alert("Sorry, it appears your email OR password is incorrect");
+        // event.target.reset();
+        return;
+      }
+    } 
   };
 
 
