@@ -1,8 +1,7 @@
 import React from "react";
 import "./NewUserPage.scss";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewUserPage() {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -12,8 +11,6 @@ function NewUserPage() {
   async function addUser(newUser) {
     try {
       const response = await axios.post(`${baseURL}/users`, newUser);
-      // console.log(response.data);
-      // setUsers(response.data);
       if(response) {
         alert("You're account has been created! \n You will now be re-directed to the login page");
         nav("/login");
@@ -30,11 +27,6 @@ function NewUserPage() {
     const newEmail = event.target.email.value;
     const newPass = event.target.pass.value;
     const newConfirmPass = event.target.confirmPass.value;
-
-    // if ( !newUsername || !newEmail || ! newPass || !newConfirmPass) {
-    //   alert("Please ensure all fields are filled!");
-    //   return;
-    // }
 
     if (!newUsername) {
       alert("Please provide a username");
@@ -75,8 +67,6 @@ function NewUserPage() {
   const handleLoginClick = (event) => {
     nav("/login");
   };
-
-  // useEffect(() => {}, []);
 
   return (
     <main className="new-user">
