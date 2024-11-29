@@ -13,7 +13,11 @@ function NewUserPage() {
     try {
       const response = await axios.post(`${baseURL}/users`, newUser);
       // console.log(response.data);
-      setUsers(response.data);
+      // setUsers(response.data);
+      if(response) {
+        alert("You're account has been created! \n You will now be re-directed to the login page");
+        nav("/login");
+      }
     } catch (error) {
       console.error("Error adding new user", error);
     }
@@ -63,13 +67,16 @@ function NewUserPage() {
       user_pass_confirm: newConfirmPass,
       user_img: "",
     };
+
+    addUser(newUser);
+
   };
 
   const handleLoginClick = (event) => {
     nav("/login");
   };
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <main className="new-user">
