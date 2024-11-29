@@ -5,11 +5,31 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function UserPage() {
-  const { userId } = useParams();
+  const { username } = useParams();
   const baseURL = import.meta.env.VITE_API_URL;
-  // console.log(userId);
+  // console.log(username);
 
+  let userId;
+  
+  const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
+
+
+  async function getUsers() {
+    try {
+      const response = await axios.get(`${baseURL}/users`);
+      // console.log(response.data);
+      setUsers(response.data);
+    } catch (error) {
+      console.error("Error retrieving users data", error);
+    }
+  }
+
+  for (let i = 0; i < users.length; i++) {
+    if (username === users[i].user_username) {
+      userId = users[i].user_id;
+    }
+  }
 
   async function getUser(userId) {
     if (!userId) {
@@ -24,6 +44,10 @@ function UserPage() {
       console.error(`Unable to get data for user with id ${userId}`, error);
     }
   }
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   useEffect(() => {
     getUser(userId);
