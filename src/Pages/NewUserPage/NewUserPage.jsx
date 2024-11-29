@@ -78,18 +78,6 @@ function NewUserPage() {
       <div className="new-user__img"></div>
 
       <form className="form" action="submit" onSubmit={handleAddUserSubmit}>
-
-      <label htmlFor="firstName" className="form__label">
-          First Name
-        </label>
-        <input type="text" className="form__input" name="firstName" />
-
-        <label htmlFor="lastName" className="form__label">
-          Last Name
-        </label>
-        <input type="text" className="form__input" name="lastName" />
-
-
         <label htmlFor="username" className="form__label">
           Username
         </label>
@@ -99,16 +87,6 @@ function NewUserPage() {
           Email
         </label>
         <input type="text" className="form__input" name="email" />
-        
-        <label htmlFor="city" className="form__label">
-          City
-        </label>
-        <input type="text" className="form__input" name="city" />
-
-        <label htmlFor="Province" className="form__label">
-          Province
-        </label>
-        <input type="text" className="form__input" name="province" />
 
         <label htmlFor="pass" className="form__label">
           Password
