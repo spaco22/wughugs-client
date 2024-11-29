@@ -21,6 +21,20 @@ function LoginPage() {
     }
   };
 
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
+
+    if(!event.target.name.value) {
+      alert("Please be sure to fill in your username OR email");
+      return
+    }
+    if(!event.target.password.value) {
+      alert("Please be sure to fill in your password");
+      return
+    }
+  };
+
+
     const handleNewClick = (event) => {
         nav("/new-user");
     }
@@ -35,7 +49,7 @@ function LoginPage() {
 
         <div className="login__img"></div>
 
-        <form className="form" action="submit">
+        <form className="form" action="submit" onSubmit={ handleLoginSubmit }>
             <label htmlFor="name" className="form__label">Username OR Email</label>
             <input type="text" className="form__input" name="name"/>
 
