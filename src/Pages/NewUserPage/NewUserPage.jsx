@@ -11,8 +11,10 @@ function NewUserPage() {
   async function addUser(newUser) {
     try {
       const response = await axios.post(`${baseURL}/users`, newUser);
-      if(response) {
-        alert("You're account has been created! \n You will now be re-directed to the login page");
+      if (response) {
+        alert(
+          "You're account has been created! \n You will now be re-directed to the login page"
+        );
         nav("/login");
       }
     } catch (error) {
@@ -61,7 +63,6 @@ function NewUserPage() {
     };
 
     addUser(newUser);
-
   };
 
   const handleLoginClick = (event) => {
