@@ -27,7 +27,7 @@ function App() {
 
           <Route path="/new-user" element={<NewUserPage />} />
 
-          <Route path="/:userId" element={<UserPage />} />
+          <Route path="/:username" element={<UserPage />} />
 
           <Route path="/add-wug" element={<AddWug />} />
 

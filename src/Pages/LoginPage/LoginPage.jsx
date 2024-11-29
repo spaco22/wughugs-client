@@ -40,7 +40,7 @@ function LoginPage() {
 
     for (let i = 0; i < users.length; i++) {
       if( (users[i].user_username || users[i].user_email) === inputName  && users[i].user_pass === inputPass ) {
-        nav("/:username");
+        nav(`/${users[i].user_username}`);
         return;
       } else {
         alert("Sorry, it appears your email OR password is incorrect");
