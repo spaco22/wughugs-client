@@ -95,7 +95,7 @@ function UserPage() {
 
           ) : (wugs.map((wug) => (
             // console.log("This is my wug:", wug);
-            <Link className="user-wug" key={ wug.wug_id } to="/wugs/:wugId">
+            <Link className="user-wug" key={ wug.wug_id } to={`/wugs/${wug.wug_id}`}>
               <div className="user-wug__img"></div>
               <h4 className="user-wug__name">{ wug.wug_name }</h4>
               <p className="user-wug__species"> { wug.wug_species } </p>
