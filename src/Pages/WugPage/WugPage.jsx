@@ -1,5 +1,8 @@
 import React from 'react';
 import "./WugPage.scss";
+import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function WugPage() {
   return (
