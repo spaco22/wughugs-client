@@ -5,6 +5,20 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function WugPage() {
+  const { wudId } = useParams();
+  const baseURL = import.meta.env.VITE_API_URL;
+
+  const [wugs, setWugs] = useState([]);
+  const [wug, setWug] = useState({});
+
+  
+
+  useEffect(() => {
+
+  }, [])
+
+
+
   return (
     <main className="wug-page">
 
