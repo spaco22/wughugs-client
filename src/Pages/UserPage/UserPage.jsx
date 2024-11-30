@@ -1,11 +1,12 @@
 import React from "react";
 import "./UserPage.scss";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function UserPage() {
   const { username } = useParams();
+  const nav = useNavigate();
   const baseURL = import.meta.env.VITE_API_URL;
   // console.log(username);
 
@@ -59,6 +60,11 @@ function UserPage() {
     }
   }
 
+  function handleAddClick(event) {
+    nav("/add-wug");
+
+  } 
+
   // console.log(wugs);
 
   useEffect(() => {
@@ -107,7 +113,7 @@ function UserPage() {
       </div>
 
       <div className="user-buttons">
-        <button className="user-button__wug">Add Wug</button>
+        <button className="user-button__wug" onClick={ handleAddClick }>Add Wug</button>
       </div>
     </main>
   );
