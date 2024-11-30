@@ -31,7 +31,7 @@ function App() {
 
           <Route path="/add-wug" element={<AddWug />} />
 
-          <Route path="/wug" element={<WugPage />} />
+          <Route path="/wugs/:wugId" element={<WugPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
