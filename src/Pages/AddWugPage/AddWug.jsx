@@ -1,7 +1,26 @@
 import React from 'react';
 import "./AddWug.scss";
+import { useNavigate } from 'react-router-dom';
 
 function AddWug() {
+
+  const nav = useNavigate();
+
+
+  function handleCancelClick(event) {
+    // event.target.preventDefault();
+
+    confirm("Click OK to cancel");
+
+    if(confirm) {
+      nav("/");
+      return;
+    } else {
+      return;
+    }
+
+  }
+
   return (
     <main className="add-wug">
         <h2 className="add-wug__title">Add</h2>
@@ -23,7 +42,7 @@ function AddWug() {
             <input type="text" className="wug-form__type" name="type" />
 
             <button className="wug-form__button-add">Add Wug</button>
-            <button className="wug-form__button-cancel">Cancel</button>
+            <button className="wug-form__button-cancel" onClick={ handleCancelClick }>Cancel</button>
 
         </form>
     </main>
