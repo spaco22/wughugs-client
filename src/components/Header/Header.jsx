@@ -5,7 +5,10 @@ import { NavLink, Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
+
+      <NavLink className="header__title-link" to="/">
       <h1 className="header__title">Wug Hugs</h1>
+      </NavLink>
 
      <Link className="header__button-dark"></Link>
 
