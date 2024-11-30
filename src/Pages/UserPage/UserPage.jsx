@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserPage.scss";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function UserPage() {
@@ -10,10 +10,10 @@ function UserPage() {
   // console.log(username);
 
   let userId;
-  
+
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
-
+  const [wugs, setWugs] = useState([]);
 
   async function getUsers() {
     try {
@@ -45,12 +45,29 @@ function UserPage() {
     }
   }
 
+  async function getUserWugs(userId) {
+    if (!userId) {
+      return;
+    }
+
+    try {
+      const response = await axios.get(`${baseURL}/users/${userId}/wugs`);
+      // console.log(response.data);
+      setWugs(response.data);
+    } catch (error) {
+      console.error(`Unable to get wugs for user with id ${userId}`, error);
+    }
+  }
+
+  // console.log(wugs);
+
   useEffect(() => {
     getUsers();
   }, []);
 
   useEffect(() => {
     getUser(userId);
+    getUserWugs(userId);
   }, [userId]);
 
   return (
@@ -73,23 +90,19 @@ function UserPage() {
       <div className="user-wugs">
         <h2 className="user-wugs__title">Wugs</h2>
         <section className="user-wugs__gallery">
-          <article className="user-wug">
-            <div className="user-wug__img"></div>
-            <h4 className="user-wug__name">Charlotte</h4>
-            <p className="wug__species">tarantula</p>
-          </article>
 
-          <article className="user-wug">
-            <div className="user-wug__img"></div>
-            <h4 className="user-wug__name">Charlie</h4>
-            <p className="wug__species">tarantula</p>
-          </article>
+          { wugs.length === 0 ? (<p className="user-wugs__loading"> Loading wugs ... </p>
 
-          <article className="user-wug">
-            <div className="user-wug__img"></div>
-            <h4 className="user-wug__name">Mealwormies</h4>
-            <p className="user-wug__species">meal worms</p>
-          </article>
+          ) : (wugs.map((wug) => (
+            // console.log("This is my wug:", wug);
+            <Link className="user-wug" key={ wug.wug_id } to="/wugs/:wugId">
+              <div className="user-wug__img"></div>
+              <h4 className="user-wug__name">{ wug.wug_name }</h4>
+              <p className="user-wug__species"> { wug.wug_species } </p>
+            </Link>
+          )
+          ) ) }
+
         </section>
       </div>
 
