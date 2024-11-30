@@ -24,13 +24,14 @@ function WugPage() {
   async function getWugById(wugId) {
     try {
       const response = await axios.get(`${baseURL}/wugs/${wugId}`);
-      console.log(response.data);
-      // setWugs(response.data);
+      // console.log(response.data);
+      setWug(response.data);
     } catch (error) {
       console.error("Error retrieving users data", error);
     }
   }
 
+  // console.log("This is my wug:", wug);
 
   useEffect(() => {
     // getWugs();
@@ -46,18 +47,18 @@ function WugPage() {
       <article className="wug">
         <div className="wug__img"></div>
         <div className="wug__text">
-        <h3 className="wug__name">Chalotte</h3>
-        <p className="wug__species">Tarantula</p>
-        <p className="wug__age"> approx. 1 year 2 months</p>
+        <h3 className="wug__name">{ wug.wug_name }</h3>
+        <p className="wug__species">{ wug.wug_species }</p>
+        <p className="wug__age"> { wug.wug_age } </p>
         <p className="wug__type">Wug</p>
-        <p className="wug__common-names">Tarantula, ...</p>
+        <p className="wug__common-names">{ wug.wug_common_names }</p>
         </div>
       </article>
 
       <article className="wug-user">
         <div className="wug-user__img"></div>
-        <h4 className="wug-user__name">Sofia</h4>
-        <p className="wug-user__location">Hornby Island</p>
+        <h4 className="wug-user__name">{ wug.user_username }</h4>
+        <p className="wug-user__location">{ wug.user_province }</p>
 
       </article>
       </section>
