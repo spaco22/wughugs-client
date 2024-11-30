@@ -10,10 +10,10 @@ function UserPage() {
   // console.log(username);
 
   let userId;
-  
+
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
-
+  const [wugs, setWugs] = useState([]);
 
   async function getUsers() {
     try {
@@ -45,12 +45,27 @@ function UserPage() {
     }
   }
 
+  async function getUserWugs(userId) {
+    if (!userId) {
+      return;
+    }
+
+    try {
+      const response = await axios.get(`${baseURL}/users/${userId}/wugs`);
+      console.log(response.data);
+      setWugs(response.data);
+    } catch (error) {
+      console.error(`Unable to get wugs for user with id ${userId}`, error);
+    }
+  }
+
   useEffect(() => {
     getUsers();
   }, []);
 
   useEffect(() => {
     getUser(userId);
+    getUserWugs(userId);
   }, [userId]);
 
   return (
