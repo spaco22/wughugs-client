@@ -7,6 +7,7 @@ function Header() {
     <header className="header">
       <h1 className="header__title">Wug Hugs</h1>
 
+     <Link className="header__button-dark"></Link>
 
         <nav className="header__nav">
         <NavLink to="/" className="header__link">Home</NavLink>
