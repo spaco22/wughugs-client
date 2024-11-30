@@ -5,16 +5,36 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function WugPage() {
-  const { wudId } = useParams();
+  const { wugId } = useParams();
   const baseURL = import.meta.env.VITE_API_URL;
 
-  const [wugs, setWugs] = useState([]);
+  // const [wugs, setWugs] = useState([]);
   const [wug, setWug] = useState({});
 
-  
+  // async function getWugs() {
+  //   try {
+  //     const response = await axios.get(`${baseURL}/wugs`);
+  //     // console.log(response.data);
+  //     setWugs(response.data);
+  //   } catch (error) {
+  //     console.error("Error retrieving users data", error);
+  //   }
+  // }
+
+  async function getWugById(wugId) {
+    try {
+      const response = await axios.get(`${baseURL}/wugs/${wugId}`);
+      console.log(response.data);
+      // setWugs(response.data);
+    } catch (error) {
+      console.error("Error retrieving users data", error);
+    }
+  }
+
 
   useEffect(() => {
-
+    // getWugs();
+    getWugById(wugId);
   }, [])
 
 
