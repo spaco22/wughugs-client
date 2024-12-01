@@ -1,12 +1,13 @@
 import React from 'react';
 import "./WugPage.scss";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function WugPage() {
   const { wugId } = useParams();
   const baseURL = import.meta.env.VITE_API_URL;
+  const nav = useNavigate();
 
   // const [wugs, setWugs] = useState([]);
   const [wug, setWug] = useState({});
@@ -29,6 +30,10 @@ function WugPage() {
     } catch (error) {
       console.error("Error retrieving users data", error);
     }
+  }
+
+  function handleEditClick(event) {
+    nav(`/wugs/${wugId}/edit`);
   }
 
   // console.log("This is my wug:", wug);
@@ -65,7 +70,7 @@ function WugPage() {
 
       <div className="wug-page__buttons">
         <button className="wug-page__delete">Delete</button>
-        <button className="wug-page__edit">Edit</button>
+        <button className="wug-page__edit" onClick={ handleEditClick } >Edit</button>
       </div>
       
 
