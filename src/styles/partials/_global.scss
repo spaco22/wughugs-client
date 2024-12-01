@@ -66,11 +66,13 @@ button {
   font-size: 0.75rem;
   line-height: 1.25rem;
   font-weight: 400;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   border: none;
   border-radius: 10rem;
   background-color: $wugorange;
   color: white;
+  text-transform: lowercase;
+  font-family: "Roboto Mono";
 }
 
 label {
