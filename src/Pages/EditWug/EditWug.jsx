@@ -1,12 +1,35 @@
 import React from 'react';
 import "./EditWug.scss";
+import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function EditWug() {
+
+    const { wugId } = useParams();
+    const baseURL = import.meta.env.VITE_API_URL;
+    const nav = useNavigate();
+
+    const [wug, setWug] = useState({});
+
+    async function getWugById(wugId) {
+        try {
+          const response = await axios.get(`${baseURL}/wugs/${wugId}`);
+          // console.log(response.data);
+          setWug(response.data);
+        } catch (error) {
+          console.error("Error retrieving users data", error);
+        }
+      }
 
     function handleCancelClick(event) {
         confirm("Click OK to cancel");
       }
-      
+
+      useEffect(() => {
+        getWugById(wugId);
+      }, [])
+
   return (
 <main className="edit-wug">
       <h2 className="edit-wug__title">Edit</h2>
