@@ -3,8 +3,18 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+
+.about {
+  @include tablet {
+    margin: 2rem;
+  }
+}
 .statements {
   margin: 2rem 1rem;
+
+  // @include tablet {
+  //   margin: 2rem;
+  // }
 }
 
 .statement {
@@ -12,24 +22,26 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: 3rem;
-    flex-basis: 0;
+    // gap: 3rem;
+    // flex-basis: 0;
     flex-grow: 1;
   }
 
   &__title {
     @include tablet {
       margin: 0;
-      width: 100%;
+      width: 15%;
+      flex-basis: 8rem;
     }
   }
 
   &__text {
 
     width: 50%;
-    
+
     @include tablet {
       width: 100%;
+      padding-left: 1.25rem;
     }
   }
 
