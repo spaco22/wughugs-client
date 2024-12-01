@@ -31,6 +31,9 @@ function EditWug() {
 
   function handleCancelClick(event) {
     confirm("Click OK to cancel");
+    if(confirm) {
+      nav(`/wugs/${wugId}`);
+    }
   }
 
   useEffect(() => {
