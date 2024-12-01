@@ -10,12 +10,18 @@ function NewUserPage() {
 
   async function addUser(newUser) {
     try {
-      const response = await axios.post(`${baseURL}/users`, newUser);
+      const response = await axios.post(`${baseURL}/users`, newUser, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       if (response) {
         alert(
-          "You're account has been created! \n You will now be re-directed to the login page"
+          "You're account has been created! \n You will now be re-directed your user page"
         );
-        nav("/login");
+        // console.log(response.data);
+        const username = response.data.newUser.user_username;
+        nav(`/${username}`);
       }
     } catch (error) {
       console.error("Error adding new user", error);
@@ -25,42 +31,60 @@ function NewUserPage() {
   const handleAddUserSubmit = (event) => {
     event.preventDefault();
 
+    const newImg = event.target.img.value;
     const newUsername = event.target.username.value;
     const newEmail = event.target.email.value;
     const newPass = event.target.pass.value;
     const newConfirmPass = event.target.confirmPass.value;
 
+
     if (!newUsername) {
       alert("Please provide a username");
+      return;
     }
 
     if (!newEmail) {
       alert("Please provide an email address");
+      return;
     }
 
     if (!newPass) {
       alert("Please provide a password");
+      return;
     }
 
     if (!newConfirmPass) {
       alert("Please confirm you password");
+      return;
     }
 
     if (newPass !== newConfirmPass) {
       alert("Passwords do not match!");
+      return;
     }
 
-    const newUser = {
-      user_firstname: "",
-      user_lastname: "",
-      user_username: newUsername,
-      user_city: "",
-      user_province: "",
-      user_email: newEmail,
-      user_pass: newPass,
-      user_pass_confirm: newConfirmPass,
-      user_img: "",
-    };
+    const newUser = new FormData();
+    newUser.append("user_img", newImg);
+    newUser.append("user_firstname", "");
+    newUser.append("user_lastname", "");
+    newUser.append("user_username", newUsername);
+    newUser.append("user_city", "");
+    newUser.append("user_province", "");
+    newUser.append("user_email", newEmail);
+    newUser.append("user_pass", newPass);
+    newUser.append("user_pass_confirm", newConfirmPass);
+
+    // const newUser = {
+    //   user_firstname: "",
+    //   user_lastname: "",
+    //   user_username: newUsername,
+    //   user_city: "",
+    //   user_province: "",
+    //   user_email: newEmail,
+    //   user_pass: newPass,
+    //   user_pass_confirm: newConfirmPass,
+    //   user_img: newImg,
+    // };
 
     addUser(newUser);
   };
@@ -75,7 +99,12 @@ function NewUserPage() {
 
       <div className="new-user__img"></div>
 
-      <form className="form" action="submit" onSubmit={handleAddUserSubmit}>
+      <form className="form" action="submit" onSubmit={handleAddUserSubmit} encType="multipart/form-data" >
+      <label htmlFor="img" className="form__label">
+          Upload Image
+        </label>
+        <input type="file" className="form__img" name="img" />
+
         <label htmlFor="username" className="form__label">
           Username
         </label>
