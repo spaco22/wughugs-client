@@ -4,17 +4,25 @@
 @use "../../styles/partials/variables" as *;
 
 .wug-page {
-    margin: 1rem;
+    margin: 2rem;
 
     &__buttons {
         display: flex;
         justify-content: flex-end;
         gap: 1rem;
     }
+
+    @include tablet {
+        margin: 2rem 4rem;
+    }
+
+    @include desktop {
+        margin: 2rem 8rem;
+    }
 }
 
 .wug__details {
-    margin: 1rem 0;
+    margin: 1rem 0 2rem;
     display: flex;
     justify-content: space-between;
     // align-items: center;
