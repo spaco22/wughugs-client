@@ -28,12 +28,26 @@ function WugPage() {
       // console.log(response.data);
       setWug(response.data);
     } catch (error) {
-      console.error("Error retrieving users data", error);
+      console.error(`Error retrieving wug with ID ${wugId}`, error);
+    }
+  }
+
+  async function delWug(wugId) {
+    try {
+      const response = await axios.delete(`${baseURL}/wugs/${wugId}`);
+      // console.log(response.data);
+      setWug(response.data);
+    } catch (error) {
+      console.error(`Error deleting wug with ID ${wugId}`, error);
     }
   }
 
   function handleEditClick(event) {
     nav(`/wugs/${wugId}/edit`);
+  }
+
+  function handleDelClick(event) {
+
   }
 
   // console.log("This is my wug:", wug);
@@ -69,7 +83,7 @@ function WugPage() {
       </section>
 
       <div className="wug-page__buttons">
-        <button className="wug-page__delete">Delete</button>
+        <button className="wug-page__delete" onClick={ handleDelClick } >Delete</button>
         <button className="wug-page__edit" onClick={ handleEditClick } >Edit</button>
       </div>
       
