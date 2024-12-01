@@ -51,7 +51,9 @@ function EditWug() {
     };
 
     editWug(editedWug);
-    alert(`Wug with ID ${wugId} successfully updated! \n You will now be re-directed to the Wug Details Page`)
+    alert(
+      `Wug with ID ${wugId} successfully updated! \n You will now be re-directed to the Wug Details Page`
+    );
     nav(`/wugs/${wugId}`);
   }
 
