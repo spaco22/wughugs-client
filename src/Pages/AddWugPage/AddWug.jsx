@@ -13,7 +13,7 @@ function AddWug() {
     <main className="add-wug">
       <h2 className="add-wug__title">Add</h2>
 
-      <form action="submit" className="wug-form">
+      <form action="submit" className="wug-form" encType="multipart/form-data">
         <label htmlFor="img" className="wug-form__label">
           Upload Image
         </label>
