@@ -25,7 +25,7 @@ function WugPage() {
   async function getWugById(wugId) {
     try {
       const response = await axios.get(`${baseURL}/wugs/${wugId}`);
-      // console.log(response.data);
+      console.log(response.data);
       setWug(response.data);
     } catch (error) {
       console.error(`Error retrieving wug with ID ${wugId}`, error);
@@ -47,7 +47,12 @@ function WugPage() {
   }
 
   function handleDelClick(event) {
-
+    confirm(`Click OK to delete ${wug.wug_name}`);
+    if(confirm) {
+      delWug(wugId);
+      alert(`${wug.wug_name} successfully deleted! \n You will now be re-directed to your profile page`)
+      nav(`/${wug.user_username}`);
+    }
   }
 
   // console.log("This is my wug:", wug);
