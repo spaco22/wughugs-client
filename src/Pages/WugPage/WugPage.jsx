@@ -3,6 +3,7 @@ import "./WugPage.scss";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+// import DelModal from "../../components/DeleteModal/DeleteModal.jsx";
 
 function WugPage() {
   const { wugId } = useParams();
@@ -11,6 +12,7 @@ function WugPage() {
 
   // const [wugs, setWugs] = useState([]);
   const [wug, setWug] = useState({});
+  // const [modalIsOpen, setIsOpen] = useState(false);
 
   // async function getWugs() {
   //   try {
@@ -34,6 +36,10 @@ function WugPage() {
 
   function handleEditClick(event) {
     nav(`/wugs/${wugId}/edit`);
+  }
+
+  function handleDelClick(event) {
+    // setIsOpen(true);
   }
 
   // console.log("This is my wug:", wug);
@@ -69,7 +75,8 @@ function WugPage() {
       </section>
 
       <div className="wug-page__buttons">
-        <button className="wug-page__delete">Delete</button>
+        <button className="wug-page__delete" onClick={ handleDelClick } >Delete</button>
+        {/* <DelModal modalIsOpen = {} /> */}
         <button className="wug-page__edit" onClick={ handleEditClick } >Edit</button>
       </div>
       
