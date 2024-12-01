@@ -25,6 +25,9 @@
   }
 
   &__text {
+
+    width: 50%;
+    
     @include tablet {
       width: 100%;
     }
