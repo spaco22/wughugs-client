@@ -17,9 +17,20 @@ function EditWug() {
       // console.log(response.data);
       setWug(response.data);
     } catch (error) {
-      console.error("Error retrieving users data", error);
+      console.error(`Error retrieving data for wug with ID ${wugId}`, error);
     }
   }
+
+  async function editWug(editedWug) {
+    try {
+      const response = await axios.get(`${baseURL}/wugs/${wugId}`, editedWug);
+      console.log(response.data);
+      // setWug(response.data);
+    } catch (error) {
+      console.error(`Error updating data for wug with ID ${wugId}`, error);
+    }
+  }
+
 
   async function handleChange(event) {
     const { name, value } = e.target;
