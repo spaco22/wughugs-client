@@ -6,6 +6,10 @@
 .homepage {
     &__title {
         margin: 2rem;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -15,12 +19,20 @@
 
 .card {
     background-color: $wugorange;
-    margin: 1rem;
+    margin: 2rem;
     border-radius: .3125rem;
     height: 15rem;
+
+    @include tablet {
+        margin-bottom: 4rem;
+    }
 
     &__title {
         color: white;
         padding: 1rem;
+
+        @include tablet {
+            font-size: 1.25rem;
+        }
     }
 }
