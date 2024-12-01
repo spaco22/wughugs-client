@@ -17,20 +17,49 @@ function EditWug() {
       // console.log(response.data);
       setWug(response.data);
     } catch (error) {
-      console.error("Error retrieving users data", error);
+      console.error(`Error retrieving data for wug with ID ${wugId}`, error);
     }
   }
 
-  async function handleChange(event) {
-    const { name, value } = e.target;
-    setUserData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  async function editWug(editedWug) {
+    try {
+      const response = await axios.put(`${baseURL}/wugs/${wugId}`, editedWug);
+      // console.log(response.data);
+      // setWug(response.data);
+    } catch (error) {
+      console.error(`Error updating data for wug with ID ${wugId}`, error);
+    }
+  }
+
+  // async function handleChange(event) {
+  //   const { name, value } = e.target;
+  //   setUserData((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const editedWug = {
+      wug_id: wugId,
+      // wug_img: event.target.img.value,
+      wug_name: event.target.name.value,
+      wug_species: event.target.species.value,
+      wug_type: event.target.type.value,
+    };
+
+    editWug(editedWug);
+    alert(`Wug with ID ${wugId} successfully updated! \n You will now be re-directed to the Wug Details Page`)
+    nav(`/wugs/${wugId}`);
   }
 
   function handleCancelClick(event) {
     confirm("Click OK to cancel");
+    if (confirm) {
+      nav(`/wugs/${wugId}`);
+    }
   }
 
   useEffect(() => {
@@ -41,7 +70,7 @@ function EditWug() {
     <main className="edit-wug">
       <h2 className="edit-wug__title">Edit</h2>
 
-      <form action="submit" className="wug-form">
+      <form action="submit" className="wug-form" onSubmit={handleFormSubmit}>
         <label htmlFor="img" className="wug-form__label">
           Upload Image
         </label>
@@ -61,13 +90,18 @@ function EditWug() {
           className="wug-form__name"
           name="name"
           defaultValue={wug.wug_name}
-          onChange={handleChange}
+          // onChange={handleChange}
         />
 
         <label htmlFor="species" className="wug-form__label">
           Wug Species
         </label>
-        <input type="text" className="wug-form__species" name="species" defaultValue={wug.wug_species} />
+        <input
+          type="text"
+          className="wug-form__species"
+          name="species"
+          defaultValue={wug.wug_species}
+        />
 
         {/* <label htmlFor="quantity" className="wug-form__label">Quantity</label>
             <input type="radio" className="wug-form__img" name="quantity" /> */}
@@ -75,15 +109,20 @@ function EditWug() {
         <label htmlFor="type" className="wug-form__label">
           Wug Type
         </label>
-        <input type="text" className="wug-form__type" name="type" defaultValue={wug.wug_type} />
+        <input
+          type="text"
+          className="wug-form__type"
+          name="type"
+          defaultValue={wug.wug_type}
+        />
 
-        <button className="wug-form__button-add">Add Wug</button>
+        <button className="wug-form__button-add">Edit Wug</button>
         <button
           className="wug-form__button-cancel"
           onClick={handleCancelClick}
           type="reset"
         >
-          Cancel
+          Cancel Edit
         </button>
       </form>
     </main>
