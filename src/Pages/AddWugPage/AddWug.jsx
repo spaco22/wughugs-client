@@ -1,26 +1,54 @@
 import React from "react";
 import "./AddWug.scss";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function AddWug() {
-  const baseURL = import.meta.env.VITE_API_URL;
+  const { username } = useParams();
   const nav = useNavigate();
+  const baseURL = import.meta.env.VITE_API_URL;
+
+  // let userId;
+
+  const [users, setUsers] = useState([]);
+  const [userId, setUserId] = useState(null);
+
+  async function getUsers() {
+    try {
+      const response = await axios.get(`${baseURL}/users`);
+      // console.log(response.data);
+      setUsers(response.data);
+
+      const matchedUser = response.data.find(user => user.user_username === username);
+      if (matchedUser) {
+        setUserId(matchedUser.user_id);
+      }
+    } catch (error) {
+      console.error("Error retrieving users data", error);
+    }
+  }
+
+
+  // if(users.length !==0 ) {
+  //   for (let i = 0; i < users.length; i++) {
+  //     if (username === users[i].user_username) {
+  //       userId = users[i].user_id;
+  //       break;
+  //     }
+  //   }
+  // }
 
   async function addWug(newWug) {
     try {
-      const response = await axios.post(`${baseURL}/wugs`, newWug, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(`${baseURL}/wugs`, newWug);
       if (response) {
         alert(
           "You're new wug has been added! \n You will now be re-directed your user page"
         );
         // console.log(response.data);
         // const username = response.data.newUser.user_username;
-        // nav(`/${username}`);
+        nav(`/${username}`);
       }
     } catch (error) {
       console.error("Error adding new wug", error);
@@ -31,8 +59,9 @@ function AddWug() {
     confirm("Click OK to cancel");
 
     if (confirm) {
-      // nav(`/${userId}`);
-      console.log("cancel");
+      nav(`/${username}`);
+      return;
+      // console.log("cancel");
     }
   }
 
@@ -52,16 +81,23 @@ function AddWug() {
     }
 
     const newWug = {
+      user_id: userId,
       wug_name: newName,
       wug_species: newSpecies,
       wug_type: newType,
       wug_common_names: newCommonNames,
       wug_age: newAge,
-      wug_img: "",
+      // wug_img: "",
     };
+
+    console.log(newWug);
 
     addWug(newWug);
   }
+
+  useEffect(() => {
+    getUsers();
+  }, [])
 
   return (
     <main className="add-wug">

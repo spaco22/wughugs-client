@@ -29,6 +29,7 @@ function UserPage() {
   for (let i = 0; i < users.length; i++) {
     if (username === users[i].user_username) {
       userId = users[i].user_id;
+      break;
     }
   }
 
