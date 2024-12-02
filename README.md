@@ -146,3 +146,9 @@ No authentication will be implemented in the initial version.
 - Friend request feature
 - Big picture, this platform would also be a great resource for people interested in recretional breeding for different wugs. For this, a source of truth for different regulation around this would be created, and a messaging system so that people can connect with users who have species they are interested in crossing. In addition, maybe there would be a blog feature to inform users of safe crossing practices, information unique to individual species, and care. 
 - Having a plant-equivalent to this platform under the name BudBuddies that would have the same functionality, but be more targeted to owners of plants who are interested in their care and crossing them.
+
+
+## How to run
+
+- npm i
+- npm run dev
