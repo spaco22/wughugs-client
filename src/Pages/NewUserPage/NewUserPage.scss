@@ -21,3 +21,11 @@
         background-position: center;
     }
 }
+
+.form {
+    
+    &__button-create,
+    &__button-cancel {
+        width: 30%;
+    }
+}
