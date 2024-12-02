@@ -37,7 +37,7 @@ function AddWug() {
         </label>
         <input type="text" className="wug-form__type" name="type" />
 
-        <button className="wug-form__button-add">Add Wug</button>
+          <div className="wug-form__buttons">
         <button
           className="wug-form__button-cancel"
           onClick={handleCancelClick}
@@ -45,6 +45,8 @@ function AddWug() {
         >
           Cancel
         </button>
+        <button className="wug-form__button-add">Add Wug</button>
+          </div>
       </form>
     </main>
   );
