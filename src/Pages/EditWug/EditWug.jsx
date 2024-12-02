@@ -14,7 +14,6 @@ function EditWug() {
   async function getWugById(wugId) {
     try {
       const response = await axios.get(`${baseURL}/wugs/${wugId}`);
-      // console.log(response.data);
       setWug(response.data);
     } catch (error) {
       console.error(`Error retrieving data for wug with ID ${wugId}`, error);
@@ -24,20 +23,10 @@ function EditWug() {
   async function editWug(editedWug) {
     try {
       const response = await axios.put(`${baseURL}/wugs/${wugId}`, editedWug);
-      // console.log(response.data);
-      // setWug(response.data);
     } catch (error) {
       console.error(`Error updating data for wug with ID ${wugId}`, error);
     }
   }
-
-  // async function handleChange(event) {
-  //   const { name, value } = e.target;
-  //   setUserData((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // }
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -46,7 +35,6 @@ function EditWug() {
 
     const editedWug = {
       wug_id: wugId,
-      // wug_img: event.target.img.value,
       wug_name: editedName,
       wug_species: event.target.species.value,
       wug_type: event.target.type.value,
@@ -78,13 +66,7 @@ function EditWug() {
         <label htmlFor="img" className="wug-form__label">
           Upload Image
         </label>
-        <input
-          type="file"
-          className="wug-form__img"
-          name="img"
-          // value={wug.wug_img}
-          // onChange={handleChange}
-        />
+        <input type="file" className="wug-form__img" name="img" />
 
         <label htmlFor="name" className="wug-form__label">
           Wug Name
@@ -94,7 +76,6 @@ function EditWug() {
           className="wug-form__name"
           name="name"
           defaultValue={wug.wug_name}
-          // onChange={handleChange}
         />
 
         <label htmlFor="species" className="wug-form__label">
@@ -107,9 +88,6 @@ function EditWug() {
           defaultValue={wug.wug_species}
         />
 
-        {/* <label htmlFor="quantity" className="wug-form__label">Quantity</label>
-            <input type="radio" className="wug-form__img" name="quantity" /> */}
-
         <label htmlFor="type" className="wug-form__label">
           Wug Type
         </label>
@@ -120,16 +98,16 @@ function EditWug() {
           defaultValue={wug.wug_type}
         />
 
-          <div className="wug-form__buttons">
-        <button
-          className="wug-form__button-cancel"
-          onClick={handleCancelClick}
-          type="reset"
-        >
-          Cancel Edit
-        </button>
-        <button className="wug-form__button-add">Edit Wug</button>
-          </div>
+        <div className="wug-form__buttons">
+          <button
+            className="wug-form__button-cancel"
+            onClick={handleCancelClick}
+            type="reset"
+          >
+            Cancel Edit
+          </button>
+          <button className="wug-form__button-add">Edit Wug</button>
+        </div>
       </form>
     </main>
   );

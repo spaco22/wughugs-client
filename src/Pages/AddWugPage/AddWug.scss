@@ -4,33 +4,33 @@
 @use "../../styles/partials/variables" as *;
 
 .add-wug {
-    margin: 2rem;
+  margin: 2rem;
 
-    @include tablet {
-        margin: 4rem;
-    }
+  @include tablet {
+    margin: 4rem;
+  }
 
-    @include desktop {
-        margin: 8rem;
-    }
+  @include desktop {
+    margin: 8rem;
+  }
 }
 
 .wug-form {
+  display: flex;
+  flex-direction: column;
+
+  &__buttons {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
 
-    &__buttons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 2rem;
+  &__button-add,
+  &__button-cancel {
+    width: 20%;
+
+    @include tablet {
+      width: 25%;
     }
-
-    &__button-add, 
-    &__button-cancel {
-        width: 20%;
-
-        @include tablet {
-            width: 25%;
-        }
-    }
+  }
 }

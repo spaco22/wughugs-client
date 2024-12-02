@@ -4,81 +4,79 @@
 @use "../../styles/partials/variables" as *;
 
 .user-page {
-    margin: 1rem;
+  margin: 1rem;
 
-    &__title {
-        margin: 1rem 0;
-    }
+  &__title {
+    margin: 1rem 0;
+  }
 }
 
 .user {
-@include tablet {
+  @include tablet {
     margin: 3rem 1rem;
     display: flex;
     gap: 2rem;
     align-items: center;
-}
+  }
 
-    &__img {
-        background-color: $wugorange;
-        width: 5rem;
-        height: 5rem;
-        border-radius: 50%;
-        background-image: url("../../assets/icons/login-w.svg");
-        background-size: 3.5rem;
-        background-repeat: no-repeat;
-        background-position: center;
+  &__img {
+    background-color: $wugorange;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-image: url("../../assets/icons/login-w.svg");
+    background-size: 3.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__name {
+    @include tablet {
+      margin: 1rem 0;
     }
+  }
 
-    &__name {
-        @include tablet {
-            margin: 1rem 0;
-        }
+  &__location {
+    @include tablet {
+      margin: 0;
     }
-
-    &__location {
-        @include tablet {
-            margin: 0;
-        }
-    }
-
+  }
 }
 
 .user-wugs {
-    margin: 4rem 1rem;
+  margin: 4rem 1rem;
 
-    &__gallery {
-        display: flex;
-        gap: 4rem;
-        flex-wrap: wrap;
-        // justify-content: space-evenly;
-    }
+  &__gallery {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
 }
 
 .user-wug {
-    margin: 1rem 0;
+  margin: 1rem 0;
 
-    &__img {
-        background-color: $wugorange;
-        width: 5rem;
-        height: 5rem;
-        border-radius: 1rem;
-        background-image: url("../../assets/icons/wug-w.svg");
-        background-size: 3.5rem;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
+  &__img {
+    background-color: $wugorange;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1rem;
+    background-image: url("../../assets/icons/wug-w.svg");
+    background-size: 3.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
-    &__name {
-        margin: 1rem 0 0.5rem;
-    }
+  &__name {
+    margin: 1rem 0 0.5rem;
+  }
 
-    &__species {
-        margin: 0.5rem 0 1rem;
-    }
+  &__species {
+    margin: 0.5rem 0 1rem;
+  }
 }
 
 .user-buttons {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }

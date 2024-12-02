@@ -4,80 +4,81 @@
 @use "../../styles/partials/variables" as *;
 
 .wug-page {
-    margin: 2rem;
+  margin: 2rem;
 
-    &__buttons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-    }
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
 
-    @include tablet {
-        margin: 2rem 4rem;
-    }
+  @include tablet {
+    margin: 2rem 4rem;
+  }
 
-    @include desktop {
-        margin: 2rem 8rem;
-    }
+  @include desktop {
+    margin: 2rem 8rem;
+  }
 }
 
 .wug__details {
-    margin: 1rem 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    // align-items: center;
+  margin: 1rem 0 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .wug {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 
-    &__img{
-        background-color: $wugorange;
-        width: 10rem;
-        height: 10rem;
-        border-radius: 50%;
-        background-image: url("../../assets/icons/wug-w.svg");
-        background-size: 8rem;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
+  &__img {
+    background-color: $wugorange;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-image: url("../../assets/icons/wug-w.svg");
+    background-size: 8rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
-    &__name {
-        margin: 1rem 0 0.5rem;
-    }
+  &__name {
+    margin: 1rem 0 0.5rem;
+  }
 
-    &__species {
-        margin: 0;
-    }
+  &__species {
+    margin: 0;
+  }
 
-    &__age, &__type, &__common-names {
-        margin: 0;
-        font-size: .75rem;
-    }
+  &__age,
+  &__type,
+  &__common-names {
+    margin: 0;
+    font-size: 0.75rem;
+  }
 }
 
 .wug-user {
+  margin: 0;
+  align-self: center;
+
+  &__img {
+    background-color: $wugorange;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-image: url("../../assets/icons/login-w.svg");
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__name {
+    margin: 0.25rem 0;
+  }
+
+  &__location {
     margin: 0;
-    align-self: center;
-
-    &__img {
-        background-color: $wugorange;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 0.5rem;
-        background-image: url("../../assets/icons/login-w.svg");
-        background-size: 2rem;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    &__name {
-        margin: 0.25rem 0;
-    }
-
-    &__location {
-        margin: 0;
-        font-size: .625rem;
-    }
+    font-size: 0.625rem;
+  }
 }

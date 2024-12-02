@@ -9,18 +9,17 @@ function AddWug() {
   const nav = useNavigate();
   const baseURL = import.meta.env.VITE_API_URL;
 
-  // let userId;
-
   const [users, setUsers] = useState([]);
   const [userId, setUserId] = useState(null);
 
   async function getUsers() {
     try {
       const response = await axios.get(`${baseURL}/users`);
-      // console.log(response.data);
       setUsers(response.data);
 
-      const matchedUser = response.data.find(user => user.user_username === username);
+      const matchedUser = response.data.find(
+        (user) => user.user_username === username
+      );
       if (matchedUser) {
         setUserId(matchedUser.user_id);
       }
@@ -29,16 +28,6 @@ function AddWug() {
     }
   }
 
-
-  // if(users.length !==0 ) {
-  //   for (let i = 0; i < users.length; i++) {
-  //     if (username === users[i].user_username) {
-  //       userId = users[i].user_id;
-  //       break;
-  //     }
-  //   }
-  // }
-
   async function addWug(newWug) {
     try {
       const response = await axios.post(`${baseURL}/wugs`, newWug);
@@ -46,8 +35,6 @@ function AddWug() {
         alert(
           "You're new wug has been added! \n You will now be re-directed your user page"
         );
-        // console.log(response.data);
-        // const username = response.data.newUser.user_username;
         nav(`/${username}`);
       }
     } catch (error) {
@@ -61,7 +48,6 @@ function AddWug() {
     if (confirm) {
       nav(`/${username}`);
       return;
-      // console.log("cancel");
     }
   }
 
@@ -87,7 +73,6 @@ function AddWug() {
       wug_type: newType,
       wug_common_names: newCommonNames,
       wug_age: newAge,
-      // wug_img: "",
     };
 
     console.log(newWug);
@@ -97,7 +82,7 @@ function AddWug() {
 
   useEffect(() => {
     getUsers();
-  }, [])
+  }, []);
 
   return (
     <main className="add-wug">
@@ -123,9 +108,6 @@ function AddWug() {
           Wug Species
         </label>
         <input type="text" className="wug-form__species" name="species" />
-
-        {/* <label htmlFor="quantity" className="wug-form__label">Quantity</label>
-            <input type="radio" className="wug-form__img" name="quantity" /> */}
 
         <label htmlFor="type" className="wug-form__label">
           Wug Type

@@ -4,42 +4,37 @@
 @use "../../styles/partials/variables" as *;
 
 .login {
-
-    &__img {
-        display: flex;
-        justify-self: center;
-        background-color: $wugorange;
-        width: 15rem;
-        height: 15rem;
-        border-radius: 50%;
-        background-image: url("../../assets/icons/login-w.svg");
-        background-size: 10rem;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
+  &__img {
+    display: flex;
+    justify-self: center;
+    background-color: $wugorange;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    background-image: url("../../assets/icons/login-w.svg");
+    background-size: 10rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 .form {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    &__label {
-        // align-self: flex-start;
-    }
+  &__input {
+    width: 30%;
+  }
 
-    &__input {
-        width: 30%;
-    }
-
-    &__button {
-        margin: 1rem;
-        width: 30%;
-    }
+  &__button {
+    margin: 1rem;
+    width: 30%;
+  }
 }
 
 .new-user {
-margin: 1rem;
-text-align: right;
+  margin: 1rem;
+  text-align: right;
 }

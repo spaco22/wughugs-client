@@ -8,7 +8,6 @@ function UserPage() {
   const { username } = useParams();
   const nav = useNavigate();
   const baseURL = import.meta.env.VITE_API_URL;
-  // console.log(username);
 
   let userId;
 
@@ -19,7 +18,6 @@ function UserPage() {
   async function getUsers() {
     try {
       const response = await axios.get(`${baseURL}/users`);
-      // console.log(response.data);
       setUsers(response.data);
     } catch (error) {
       console.error("Error retrieving users data", error);
@@ -40,7 +38,6 @@ function UserPage() {
 
     try {
       const response = await axios.get(`${baseURL}/users/${userId}`);
-      // console.log(response.data);
       setUser(response.data);
     } catch (error) {
       console.error(`Unable to get data for user with id ${userId}`, error);
@@ -54,7 +51,6 @@ function UserPage() {
 
     try {
       const response = await axios.get(`${baseURL}/users/${userId}/wugs`);
-      // console.log(response.data);
       setWugs(response.data);
     } catch (error) {
       console.error(`Unable to get wugs for user with id ${userId}`, error);
@@ -63,9 +59,7 @@ function UserPage() {
 
   function handleAddClick(event) {
     nav(`/${username}/add-wug`);
-  } 
-
-  // console.log(wugs);
+  }
 
   useEffect(() => {
     getUsers();
@@ -96,24 +90,28 @@ function UserPage() {
       <div className="user-wugs">
         <h2 className="user-wugs__title">Wugs</h2>
         <section className="user-wugs__gallery">
-
-          { wugs.length === 0 ? (<p className="user-wugs__loading"> Loading wugs ... </p>
-
-          ) : (wugs.map((wug) => (
-            // console.log("This is my wug:", wug);
-            <Link className="user-wug" key={ wug.wug_id } to={`/wugs/${wug.wug_id}`}>
-              <div className="user-wug__img"></div>
-              <h4 className="user-wug__name">{ wug.wug_name }</h4>
-              <p className="user-wug__species"> { wug.wug_species } </p>
-            </Link>
-          )
-          ) ) }
-
+          {wugs.length === 0 ? (
+            <p className="user-wugs__loading"> Loading wugs ... </p>
+          ) : (
+            wugs.map((wug) => (
+              <Link
+                className="user-wug"
+                key={wug.wug_id}
+                to={`/wugs/${wug.wug_id}`}
+              >
+                <div className="user-wug__img"></div>
+                <h4 className="user-wug__name">{wug.wug_name}</h4>
+                <p className="user-wug__species"> {wug.wug_species} </p>
+              </Link>
+            ))
+          )}
         </section>
       </div>
 
       <div className="user-buttons">
-        <button className="user-button__wug" onClick={ handleAddClick }>Add Wug</button>
+        <button className="user-button__wug" onClick={handleAddClick}>
+          Add Wug
+        </button>
       </div>
     </main>
   );

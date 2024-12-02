@@ -12,7 +12,6 @@ function LoginPage() {
   async function getUsers() {
     try {
       const response = await axios.get(`${baseURL}/users`);
-      // console.log(response.data);
       setUsers(response.data);
     } catch (error) {
       console.error("Error retrieving users data", error);

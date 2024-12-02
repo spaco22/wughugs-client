@@ -19,7 +19,6 @@ function NewUserPage() {
         alert(
           "You're account has been created! \n You will now be re-directed your user page"
         );
-        // console.log(response.data);
         const username = response.data.newUser.user_username;
         nav(`/${username}`);
       }
@@ -36,7 +35,6 @@ function NewUserPage() {
     const newEmail = event.target.email.value;
     const newPass = event.target.pass.value;
     const newConfirmPass = event.target.confirmPass.value;
-
 
     if (!newUsername) {
       alert("Please provide a username");
@@ -74,18 +72,6 @@ function NewUserPage() {
     newUser.append("user_pass", newPass);
     newUser.append("user_pass_confirm", newConfirmPass);
 
-    // const newUser = {
-    //   user_firstname: "",
-    //   user_lastname: "",
-    //   user_username: newUsername,
-    //   user_city: "",
-    //   user_province: "",
-    //   user_email: newEmail,
-    //   user_pass: newPass,
-    //   user_pass_confirm: newConfirmPass,
-    //   user_img: newImg,
-    // };
-
     addUser(newUser);
   };
 
@@ -99,8 +85,13 @@ function NewUserPage() {
 
       <div className="new-user__img"></div>
 
-      <form className="form" action="submit" onSubmit={handleAddUserSubmit} encType="multipart/form-data" >
-      <label htmlFor="img" className="form__label">
+      <form
+        className="form"
+        action="submit"
+        onSubmit={handleAddUserSubmit}
+        encType="multipart/form-data"
+      >
+        <label htmlFor="img" className="form__label">
           Upload Image
         </label>
         <input type="file" className="form__img" name="img" />

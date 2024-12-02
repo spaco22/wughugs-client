@@ -4,34 +4,33 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
-    color: white;
-    background-color: $wugpink;
-    border-radius: .3125rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  color: white;
+  background-color: $wugpink;
+  border-radius: 0.3125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    background-image: url("../../assets/icons/wughugs-b.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    
+  background-image: url("../../assets/icons/wughugs-b.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__title {
     @include tablet {
-        flex-direction: row;
-        justify-content: space-between;
-
+      margin-left: 6rem;
     }
+  }
 
-    &__title {
-        @include tablet {
-            margin-left: 6rem;
-        }
+  &__nav {
+    margin-bottom: 1rem;
+
+    @include tablet {
+      margin-bottom: 0;
     }
-
-    &__nav {
-        margin-bottom: 1rem;
-
-        @include tablet {
-            margin-bottom: 0;
-        }
-    }
+  }
 }

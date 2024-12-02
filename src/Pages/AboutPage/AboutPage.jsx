@@ -25,7 +25,9 @@ function AboutPage() {
         <article className="statement">
           <h2 className="statement__title">Values</h2>
           <ul className="statement__values">
-            <li className="statement__value">No question is too silly to ask</li>
+            <li className="statement__value">
+              No question is too silly to ask
+            </li>
             <li className="statement__value">Be respectful</li>
             <li className="statement__value">Have fun!</li>
           </ul>
