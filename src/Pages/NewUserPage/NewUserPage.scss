@@ -1,0 +1,30 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.new-user {
+  &__title {
+    text-align: center;
+  }
+
+  &__img {
+    display: flex;
+    justify-self: center;
+    background-color: $wugorange;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    background-image: url("../../assets/icons/login-w.svg");
+    background-size: 10rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.form {
+  &__button-create,
+  &__button-cancel {
+    width: 30%;
+  }
+}

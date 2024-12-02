@@ -1,0 +1,38 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.homepage {
+  &__title {
+    margin: 2rem;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.cards {
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: $wugorange;
+  margin: 2rem;
+  border-radius: 0.3125rem;
+  height: 15rem;
+
+  @include tablet {
+    margin-bottom: 4rem;
+  }
+
+  &__title {
+    color: white;
+    padding: 1rem;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+}
