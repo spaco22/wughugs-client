@@ -1,12 +1,14 @@
 import React from "react";
 import "./NewUserPage.scss";
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function NewUserPage() {
   const baseURL = import.meta.env.VITE_API_URL;
-
   const nav = useNavigate();
+  const [imgFile, setImgFile] = useState()
+
 
   async function addUser(newUser) {
     try {
@@ -28,10 +30,14 @@ function NewUserPage() {
     }
   }
 
+  const handleImgChange = (event) => {
+    setImgFile(event.target.files[0]);
+  }
+
   const handleAddUserSubmit = (event) => {
     event.preventDefault();
 
-    const newImg = event.target.img.value;
+    // const newImg  = event.target.user_img.value;
     const newUsername = event.target.username.value;
     const newEmail = event.target.email.value;
     const newPass = event.target.pass.value;
@@ -64,12 +70,8 @@ function NewUserPage() {
     }
 
     const newUser = new FormData();
-    newUser.append("user_img", newImg);
-    newUser.append("user_firstname", "");
-    newUser.append("user_lastname", "");
+    newUser.append("user_img", imgFile);
     newUser.append("user_username", newUsername);
-    newUser.append("user_city", "");
-    newUser.append("user_province", "");
     newUser.append("user_email", newEmail);
     newUser.append("user_pass", newPass);
     newUser.append("user_pass_confirm", newConfirmPass);
@@ -100,10 +102,10 @@ function NewUserPage() {
       <div className="new-user__img"></div>
 
       <form className="form" action="submit" onSubmit={handleAddUserSubmit} encType="multipart/form-data" >
-      <label htmlFor="img" className="form__label">
+      <label htmlFor="user_img" className="form__label">
           Upload Image
         </label>
-        <input type="file" className="form__img" name="img" />
+        <input type="file" className="form__img" name="user_img" filename={imgFile} accept="img/*" onChange={ handleImgChange } />
 
         <label htmlFor="username" className="form__label">
           Username
