@@ -61,7 +61,7 @@ function UserPage() {
   }
 
   function handleAddClick(event) {
-    nav("/add-wug");
+    nav(`/${username}/add-wug`);
   } 
 
   // console.log(wugs);

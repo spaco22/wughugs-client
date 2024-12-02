@@ -30,7 +30,7 @@ function App() {
 
           <Route path="/:username" element={<UserPage />} />
 
-          <Route path="/add-wug" element={<AddWug />} />
+          <Route path="/:username/add-wug" element={<AddWug />} />
 
           <Route path="/wugs/:wugId" element={<WugPage />} />
 
