@@ -42,17 +42,19 @@ function EditWug() {
   function handleFormSubmit(event) {
     event.preventDefault();
 
+    const editedName = event.target.name.value;
+
     const editedWug = {
       wug_id: wugId,
       // wug_img: event.target.img.value,
-      wug_name: event.target.name.value,
+      wug_name: editedName,
       wug_species: event.target.species.value,
       wug_type: event.target.type.value,
     };
 
     editWug(editedWug);
     alert(
-      `Wug with ID ${wugId} successfully updated! \n You will now be re-directed to the Wug Details Page`
+      `${wug.wug_name} successfully updated! \n You will now be re-directed to the Wug Details Page`
     );
     nav(`/wugs/${wugId}`);
   }
@@ -118,7 +120,7 @@ function EditWug() {
           defaultValue={wug.wug_type}
         />
 
-        <button className="wug-form__button-add">Edit Wug</button>
+          <div className="wug-form__buttons">
         <button
           className="wug-form__button-cancel"
           onClick={handleCancelClick}
@@ -126,6 +128,8 @@ function EditWug() {
         >
           Cancel Edit
         </button>
+        <button className="wug-form__button-add">Edit Wug</button>
+          </div>
       </form>
     </main>
   );
