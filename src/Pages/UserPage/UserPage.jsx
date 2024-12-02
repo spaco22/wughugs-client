@@ -81,7 +81,7 @@ function UserPage() {
       <h1 className="user-page__title">Welcome back, {user.user_firstname}!</h1>
 
       <section className="user">
-        <div className="user__img"></div>
+        <div className="user__img">{users.user_img}</div>
 
         <article className="user__text">
           <h3 className="user__name">
