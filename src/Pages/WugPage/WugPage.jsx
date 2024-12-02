@@ -79,12 +79,12 @@ function WugPage() {
         </div>
       </article>
 
-      <article className="wug-user">
+      <Link className="wug-user" to={`/${wug.user_username}`}>
         <div className="wug-user__img"></div>
         <h4 className="wug-user__name">{ wug.user_username }</h4>
         <p className="wug-user__location">{ wug.user_province }</p>
 
-      </article>
+      </Link>
       </section>
 
       <div className="wug-page__buttons">

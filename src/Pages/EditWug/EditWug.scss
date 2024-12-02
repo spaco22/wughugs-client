@@ -14,3 +14,10 @@
         margin: 2rem 8rem;
     }
 }
+
+.wug-form {
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
