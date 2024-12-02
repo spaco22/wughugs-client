@@ -13,6 +13,7 @@ function AddWug() {
 
   const [users, setUsers] = useState([]);
   const [userId, setUserId] = useState(null);
+  const [imgFile, setImgFile] = useState()
 
   async function getUsers() {
     try {
@@ -55,6 +56,10 @@ function AddWug() {
     }
   }
 
+  const handleImgChange = (event) => {
+    setImgFile(event.target.files[0]);
+  }
+
   function handleCancelClick(event) {
     confirm("Click OK to cancel");
 
@@ -68,7 +73,7 @@ function AddWug() {
   function handleAddWug(event) {
     event.preventDefault();
 
-    const newImg = event.target.img.value;
+    // const newImg = event.target.img.value;
     const newName = event.target.name.value;
     const newSpecies = event.target.species.value;
     const newType = event.target.type.value;
@@ -80,17 +85,27 @@ function AddWug() {
       return;
     }
 
-    const newWug = {
-      user_id: userId,
-      wug_name: newName,
-      wug_species: newSpecies,
-      wug_type: newType,
-      wug_common_names: newCommonNames,
-      wug_age: newAge,
-      // wug_img: "",
-    };
+    const newWug = new FormData();
+    newWug.append("user_id", userId);
+    newWug.append("wug_name", newName);
+    newWug.append("wug_species", newSpecies);
+    newWug.append("wug_type", newType);
+    newWug.append("wug_common_names", newCommonNames);
+    newWug.append("wug_age", newAge);
+    newWug.append("wug_img", imgFile);
 
-    console.log(newWug);
+
+    // const newWug = {
+    //   user_id: userId,
+    //   wug_name: newName,
+    //   wug_species: newSpecies,
+    //   wug_type: newType,
+    //   wug_common_names: newCommonNames,
+    //   wug_age: newAge,
+    //   wug_img: imgFile,
+    // };
+
+    // console.log(newWug);
 
     addWug(newWug);
   }
@@ -112,7 +127,7 @@ function AddWug() {
         <label htmlFor="img" className="wug-form__label">
           Upload Image
         </label>
-        <input type="file" className="wug-form__img" name="img" />
+        <input type="file" className="wug-form__img" name="wug_img" filename={imgFile} accept="img/*" onChange={ handleImgChange } />
 
         <label htmlFor="name" className="wug-form__label">
           Wug Name
