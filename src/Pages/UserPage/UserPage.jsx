@@ -63,8 +63,9 @@ function UserPage() {
 
   function handleAddClick(event) {
     nav(`/${username}/add-wug`);
-  } 
+  }
 
+  // console.log(user.user_img);
   // console.log(wugs);
 
   useEffect(() => {
@@ -81,7 +82,16 @@ function UserPage() {
       <h1 className="user-page__title">Welcome back, {user.user_firstname}!</h1>
 
       <section className="user">
-        <div className="user__img">{users.user_img}</div>
+        <div className="user__img-div">
+          
+          {user.user_img && (
+            <img
+              className="user__img"
+              src={`${baseURL}/${user.user_img}`}
+              alt=""
+            />
+          )}
+        </div>
 
         <article className="user__text">
           <h3 className="user__name">
@@ -96,24 +106,29 @@ function UserPage() {
       <div className="user-wugs">
         <h2 className="user-wugs__title">Wugs</h2>
         <section className="user-wugs__gallery">
-
-          { wugs.length === 0 ? (<p className="user-wugs__loading"> Loading wugs ... </p>
-
-          ) : (wugs.map((wug) => (
-            // console.log("This is my wug:", wug);
-            <Link className="user-wug" key={ wug.wug_id } to={`/wugs/${wug.wug_id}`}>
-              <div className="user-wug__img"></div>
-              <h4 className="user-wug__name">{ wug.wug_name }</h4>
-              <p className="user-wug__species"> { wug.wug_species } </p>
-            </Link>
-          )
-          ) ) }
-
+          {wugs.length === 0 ? (
+            <p className="user-wugs__loading"> Loading wugs ... </p>
+          ) : (
+            wugs.map((wug) => (
+              // console.log("This is my wug:", wug);
+              <Link
+                className="user-wug"
+                key={wug.wug_id}
+                to={`/wugs/${wug.wug_id}`}
+              >
+                <div className="user-wug__img"></div>
+                <h4 className="user-wug__name">{wug.wug_name}</h4>
+                <p className="user-wug__species"> {wug.wug_species} </p>
+              </Link>
+            ))
+          )}
         </section>
       </div>
 
       <div className="user-buttons">
-        <button className="user-button__wug" onClick={ handleAddClick }>Add Wug</button>
+        <button className="user-button__wug" onClick={handleAddClick}>
+          Add Wug
+        </button>
       </div>
     </main>
   );
