@@ -69,7 +69,10 @@ function EditWug() {
     editedWug.append("wug_type", editedType);
     editedWug.append("wug_common_names", editedCommonNames);
     editedWug.append("wug_age", editedAge);
-    editedWug.append("wug_img", imgFile);
+
+    if(imgFile) {
+      editedWug.append("wug_img", imgFile);
+    }
 
     // console.log(editedWug);
     editWug(editedWug);
@@ -175,7 +178,7 @@ function EditWug() {
           >
             Cancel Edit
           </button>
-          <button className="wug-form__button-add">Edit Wug</button>
+          <button className="wug-form__button-add">Update Wug</button>
         </div>
       </form>
     </main>

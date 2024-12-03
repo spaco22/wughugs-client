@@ -47,11 +47,15 @@ function WugPage() {
   }
 
   function handleDelClick(event) {
-    confirm(`Click OK to delete ${wug.wug_name}`);
-    if(confirm) {
+    ;
+
+    if(confirm(`Click OK to delete ${wug.wug_name}`)) {
       delWug(wugId);
       alert(`${wug.wug_name} successfully deleted! \n You will now be re-directed to your profile page`)
       nav(`/${wug.user_username}`);
+      return;
+    } else {
+      return;
     }
   }
 
@@ -96,7 +100,7 @@ function WugPage() {
             />
           )}</div>
         <h4 className="wug-user__name">{ wug.user_username }</h4>
-        <p className="wug-user__location">{ wug.user_province }</p>
+        <p className="wug-user__location">{ wug.user_city }, { wug.user_province }</p>
 
       </Link>
       </section>

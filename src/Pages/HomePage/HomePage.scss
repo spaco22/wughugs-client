@@ -23,6 +23,14 @@
     border-radius: .3125rem;
     height: 15rem;
 
+    display: flex;
+    justify-content: space-around;
+
+    &--k {
+        flex-direction: row-reverse;
+    }
+
+
     @include tablet {
         margin-bottom: 4rem;
     }
@@ -34,5 +42,34 @@
         @include tablet {
             font-size: 1.25rem;
         }
+    }
+
+    // &__img {
+    //     background-image: url("../../assets/images/make-friends.png");
+    //     background-position: cover;
+    // }
+
+    &__img-f {
+        // width:50%;
+        // object-fit: cover;
+        height: 37.5rem;
+        position: relative;
+        bottom: 15rem;
+        
+        // height: 30%;
+    }
+
+    &__img-k {
+        height: 31.25rem;
+        position: relative;
+        bottom: 13rem;
+    
+    }
+
+    &__img-e {
+        height: 31.25rem;
+        position: relative;
+        bottom: 10rem;
+    
     }
 }

@@ -76,7 +76,7 @@ function LoginPage() {
         <label htmlFor="password" className="form__label">
           Password
         </label>
-        <input type="text" className="form__input" name="password" />
+        <input type="password" className="form__input" name="password" />
 
         <button className="form__button">Login</button>
       </form>
