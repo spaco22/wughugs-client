@@ -83,7 +83,6 @@ function UserPage() {
 
       <section className="user">
         <div className="user__img-div">
-          
           {user.user_img && (
             <img
               className="user__img"
@@ -116,7 +115,15 @@ function UserPage() {
                 key={wug.wug_id}
                 to={`/wugs/${wug.wug_id}`}
               >
-                <div className="user-wug__img"></div>
+                <div className="user-wug__img-div">
+                  {wug.wug_img && (
+                    <img
+                      className="user-wug__img"
+                      src={`${baseURL}/${wug.wug_img}`}
+                      alt=""
+                    />
+                  )}
+                </div>
                 <h4 className="user-wug__name">{wug.wug_name}</h4>
                 <p className="user-wug__species"> {wug.wug_species} </p>
               </Link>

@@ -68,7 +68,7 @@
 .user-wug {
     margin: 1rem 0;
 
-    &__img {
+    &__img-div {
         background-color: $wugorange;
         width: 5rem;
         height: 5rem;
@@ -77,6 +77,16 @@
         background-size: 3.5rem;
         background-repeat: no-repeat;
         background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__img{
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 1rem;
+        background-color: $wugorange;
     }
 
     &__name {
