@@ -21,9 +21,9 @@
 
     &__img-div {
         background-color: $wugorange;
-        width: 5rem;
-        height: 5rem;
-        border-radius: 50%;
+        width: 7rem;
+        height: 6.5rem;
+        border-radius: 10%;
         background-image: url("../../assets/icons/login-w.svg");
         background-size: 3.5rem;
         background-repeat: no-repeat;
@@ -34,9 +34,11 @@
     }
 
     &__img{
-        width: 4.5rem;
-        height: 4.5rem;
-        border-radius: 50%;
+        // width: 5rem;
+        height: 6rem;
+        // height: auto;
+        // height: 5rem;
+        border-radius: 10%;
         background-color: $wugorange;
     }
 
@@ -58,7 +60,9 @@
     margin: 4rem 1rem;
 
     &__gallery {
+        // padding: 0 2rem;
         display: flex;
+        // justify-content: space-around;
         gap: 4rem;
         flex-wrap: wrap;
         // justify-content: space-evenly;
