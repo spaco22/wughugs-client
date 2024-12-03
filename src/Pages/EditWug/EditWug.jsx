@@ -48,27 +48,30 @@ function EditWug() {
     event.preventDefault();
 
     const editedName = event.target.name.value;
-    const editedSpecies = event.target.name.value;
-    const editedType = event.target.name.value;
-    const editedCommonNames = event.target.name.value;
-    const editedAge = event.target.name.value;
+    const editedSpecies = event.target.species.value;
+    const editedType = event.target.type.value;
+    const editedCommonNames = event.target.commonNames.value;
+    const editedAge = event.target.age.value;
 
     // const editedWug = {
     //   wug_id: wugId,
-    //   // wug_img: event.target.img.value,
+    //   wug_img: imgFile,
     //   wug_name: editedName,
-    //   wug_species: event.target.species.value,
-    //   wug_type: event.target.type.value,
+    //   wug_species: editedSpecies,
+    //   wug_type: editedType,
+    //   wug_common_names: editedCommonNames, 
+    //   wug_age: editedAge
     // };
 
     const editedWug = new FormData();
-    newWug.append("wug_name", editedName);
-    newWug.append("wug_species", newSpecies);
-    newWug.append("wug_type", newType);
-    newWug.append("wug_common_names", newCommonNames);
-    newWug.append("wug_age", newAge);
-    newWug.append("wug_img", imgFile);
+    editedWug.append("wug_name", editedName);
+    editedWug.append("wug_species", editedSpecies);
+    editedWug.append("wug_type", editedType);
+    editedWug.append("wug_common_names", editedCommonNames);
+    editedWug.append("wug_age", editedAge);
+    editedWug.append("wug_img", imgFile);
 
+    // console.log(editedWug);
     editWug(editedWug);
     alert(
       `${wug.wug_name} successfully updated! \n You will now be re-directed to the Wug Details Page`
