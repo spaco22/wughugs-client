@@ -69,7 +69,15 @@ function WugPage() {
 
       <section className="wug__details">
       <article className="wug">
-        <div className="wug__img"></div>
+        <div className="wug__img-div">
+        {wug.wug_img && (
+            <img
+              className="wug__img"
+              src={`${baseURL}/${wug.wug_img}`}
+              alt=""
+            />
+          )}
+        </div>
         <div className="wug__text">
         <h3 className="wug__name">{ wug.wug_name }</h3>
         <p className="wug__species">{ wug.wug_species }</p>
@@ -80,7 +88,13 @@ function WugPage() {
       </article>
 
       <Link className="wug-user" to={`/${wug.user_username}`}>
-        <div className="wug-user__img"></div>
+        <div className="wug-user__img-div">{wug.user_img && (
+            <img
+              className="wug-user__img"
+              src={`${baseURL}/${wug.user_img}`}
+              alt=""
+            />
+          )}</div>
         <h4 className="wug-user__name">{ wug.user_username }</h4>
         <p className="wug-user__location">{ wug.user_province }</p>
 
