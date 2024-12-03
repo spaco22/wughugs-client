@@ -92,7 +92,10 @@ function AddWug() {
     newWug.append("wug_type", newType);
     newWug.append("wug_common_names", newCommonNames);
     newWug.append("wug_age", newAge);
-    newWug.append("wug_img", imgFile);
+
+    if(imgFile) {
+      newWug.append("wug_img", imgFile);
+    }
 
 
     // const newWug = {
