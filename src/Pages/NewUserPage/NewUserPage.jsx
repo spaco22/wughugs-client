@@ -120,12 +120,12 @@ function NewUserPage() {
         <label htmlFor="pass" className="form__label">
           Password
         </label>
-        <input type="text" className="form__input" name="pass" />
+        <input type="password" className="form__input" name="pass" />
 
         <label htmlFor="confirmPass" className="form__label">
           Confirm Password
         </label>
-        <input type="text" className="form__input" name="confirmPass" />
+        <input type="password" className="form__input" name="confirmPass" />
 
         <button className="form__button-create">Create Account</button>
         <button className="form__button-cancel">Cancel</button>
