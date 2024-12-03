@@ -10,6 +10,7 @@ function EditWug() {
   const nav = useNavigate();
 
   const [wug, setWug] = useState({});
+  const [imgFile, setImgFile] = useState();
 
   async function getWugById(wugId) {
     try {
@@ -31,6 +32,10 @@ function EditWug() {
     }
   }
 
+  const handleImgChange = (event) => {
+    setImgFile(event.target.files[0]);
+  };
+
   // async function handleChange(event) {
   //   const { name, value } = e.target;
   //   setUserData((prevState) => ({
@@ -43,14 +48,26 @@ function EditWug() {
     event.preventDefault();
 
     const editedName = event.target.name.value;
+    const editedSpecies = event.target.name.value;
+    const editedType = event.target.name.value;
+    const editedCommonNames = event.target.name.value;
+    const editedAge = event.target.name.value;
 
-    const editedWug = {
-      wug_id: wugId,
-      // wug_img: event.target.img.value,
-      wug_name: editedName,
-      wug_species: event.target.species.value,
-      wug_type: event.target.type.value,
-    };
+    // const editedWug = {
+    //   wug_id: wugId,
+    //   // wug_img: event.target.img.value,
+    //   wug_name: editedName,
+    //   wug_species: event.target.species.value,
+    //   wug_type: event.target.type.value,
+    // };
+
+    const editedWug = new FormData();
+    newWug.append("wug_name", editedName);
+    newWug.append("wug_species", newSpecies);
+    newWug.append("wug_type", newType);
+    newWug.append("wug_common_names", newCommonNames);
+    newWug.append("wug_age", newAge);
+    newWug.append("wug_img", imgFile);
 
     editWug(editedWug);
     alert(
@@ -74,16 +91,23 @@ function EditWug() {
     <main className="edit-wug">
       <h2 className="edit-wug__title">Edit</h2>
 
-      <form action="submit" className="wug-form" onSubmit={handleFormSubmit}>
+      <form
+        action="submit"
+        className="wug-form"
+        encType="multipart/form-data"
+        onSubmit={handleFormSubmit}
+      >
         <label htmlFor="img" className="wug-form__label">
           Upload Image
         </label>
         <input
           type="file"
           className="wug-form__img"
-          name="img"
-          // value={wug.wug_img}
-          // onChange={handleChange}
+          name="wug_img"
+          filename={imgFile}
+          accept="img/*"
+          onChange={handleImgChange}
+          defaultValue={wug.wug_img}
         />
 
         <label htmlFor="name" className="wug-form__label">
@@ -120,16 +144,36 @@ function EditWug() {
           defaultValue={wug.wug_type}
         />
 
-          <div className="wug-form__buttons">
-        <button
-          className="wug-form__button-cancel"
-          onClick={handleCancelClick}
-          type="reset"
-        >
-          Cancel Edit
-        </button>
-        <button className="wug-form__button-add">Edit Wug</button>
-          </div>
+        <label htmlFor="commonNames" className="wug-form__label">
+          Common Names
+        </label>
+        <input
+          type="text"
+          className="wug-form__species"
+          name="commonNames"
+          defaultValue={wug.wug_common_names}
+        />
+
+        <label htmlFor="age" className="wug-form__label">
+          Age
+        </label>
+        <input
+          type="text"
+          className="wug-form__species"
+          name="age"
+          defaultValue={wug.wug_species}
+        />
+
+        <div className="wug-form__buttons">
+          <button
+            className="wug-form__button-cancel"
+            onClick={handleCancelClick}
+            type="reset"
+          >
+            Cancel Edit
+          </button>
+          <button className="wug-form__button-add">Edit Wug</button>
+        </div>
       </form>
     </main>
   );
