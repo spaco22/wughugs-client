@@ -88,6 +88,10 @@ function WugPage() {
     }
   }
 
+  function handleAddEntryClick(event) {
+    nav(`/wugs/${wugId}/add-entry`);
+  }
+
   // console.log("This is my wug:", wug);
 
   useEffect(() => {
@@ -145,9 +149,8 @@ function WugPage() {
           </button>
         </div>
 
-        <button className="wug-page__edit" onClick={handleEditClick}>
-          {" "}
-          Add Entry{" "}
+        <button className="wug-page__add-entry" onClick={handleAddEntryClick}>
+          Add Entry
         </button>
       </div>
 
