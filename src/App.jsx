@@ -7,6 +7,7 @@ import UserPage from "./Pages/UserPage/UserPage";
 import AddWug from "./Pages/AddWugPage/AddWug";
 import WugPage from "./Pages/WugPage/WugPage";
 import EditWug from "./Pages/EditWug/EditWug";
+import AddEntry from "./Pages/AddEntry/AddEntry";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -35,6 +36,9 @@ function App() {
           <Route path="/wugs/:wugId" element={<WugPage />} />
 
           <Route path="/wugs/:wugId/edit" element={<EditWug />} />
+
+          <Route path="/wugs/:wugId/add-entry" element={<AddEntry />} />
+
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
