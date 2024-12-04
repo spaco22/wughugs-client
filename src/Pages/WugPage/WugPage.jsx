@@ -11,6 +11,7 @@ function WugPage() {
 
   // const [wugs, setWugs] = useState([]);
   const [wug, setWug] = useState({});
+  const [journals, setJournals] = useState([]);
 
   // async function getWugs() {
   //   try {
@@ -25,7 +26,7 @@ function WugPage() {
   async function getWugById(wugId) {
     try {
       const response = await axios.get(`${baseURL}/wugs/${wugId}`);
-      console.log(response.data);
+      // console.log(response.data);
       setWug(response.data);
     } catch (error) {
       console.error(`Error retrieving wug with ID ${wugId}`, error);
@@ -41,6 +42,34 @@ function WugPage() {
       console.error(`Error deleting wug with ID ${wugId}`, error);
     }
   }
+
+  async function getWugJournals(wugId) {
+    try {
+      const response = await axios.get(`${baseURL}/wugs/${wugId}/journals`);
+      // console.log(response.data);
+
+      const data = response.data;
+      
+      const formattedJournals = data
+      .map(journal => ({
+        ...journal,
+        formattedDate: new Intl.DateTimeFormat('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
+        }).format(new Date(journal.date_created))
+      })).reverse();
+
+console.log(formattedJournals);
+      setJournals(formattedJournals);
+    } catch (error) {
+      console.error(`Error retrieving journals for wug with ID ${wugId}`, error);
+    }
+  }
+
+ 
+
+
 
   function handleEditClick(event) {
     nav(`/wugs/${wugId}/edit`);
@@ -64,6 +93,7 @@ function WugPage() {
   useEffect(() => {
     // getWugs();
     getWugById(wugId);
+    getWugJournals(wugId);
   }, [])
 
 
@@ -109,6 +139,34 @@ function WugPage() {
         <button className="wug-page__delete" onClick={ handleDelClick } >Delete</button>
         <button className="wug-page__edit" onClick={ handleEditClick } >Edit</button>
       </div>
+
+      <section className="wugs-journal">
+          {journals.length === 0 ? (
+            <p className="wug-journals__loading"> Loading wugs ... </p>
+          ) : (
+            journals.map((journal) => (
+              // console.log("This is my wug:", wug);
+              <Link
+                className="wug-journal"
+                key={journal.journal_id}
+                // to={`/wugs/${wug.wug_id}`}
+              >
+                {/* <div className="wug-journal__img-div">
+                  {journal.img && (
+                    <img
+                      className="user-wug__img"
+                      src={`${baseURL}/${wug.wug_img}`}
+                      alt=""
+                    />
+                  )}
+                </div> */}
+                <h4 className="wug-journal__title">{journal.title}</h4>
+                <p className="wug-journal__text"> {journal.formattedDate} </p>
+                <p className="wug-journal__text"> {journal.text} </p>
+              </Link>
+            ))
+          )}
+        </section>
       
 
     </main>
