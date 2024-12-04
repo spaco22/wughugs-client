@@ -140,17 +140,18 @@ console.log(formattedJournals);
         <button className="wug-page__edit" onClick={ handleEditClick } >Edit</button>
       </div>
 
-      <section className="wugs-journal">
+      <section className="wugs-journals">
           {journals.length === 0 ? (
             <p className="wug-journals__loading"> Loading wugs ... </p>
           ) : (
             journals.map((journal) => (
               // console.log("This is my wug:", wug);
-              <Link
-                className="wug-journal"
-                key={journal.journal_id}
-                // to={`/wugs/${wug.wug_id}`}
-              >
+              <div className="wug-journal" key={journal.journal_id}>
+              {/* <Link
+                className="wug-journal-link" */}
+                
+                {/* // to={`/wugs/${wug.wug_id}`}
+              > */}
                 {/* <div className="wug-journal__img-div">
                   {journal.img && (
                     <img
@@ -160,10 +161,14 @@ console.log(formattedJournals);
                     />
                   )}
                 </div> */}
+
+                <div className="wug-journal__heading">
                 <h4 className="wug-journal__title">{journal.title}</h4>
                 <p className="wug-journal__text"> {journal.formattedDate} </p>
+                </div>
                 <p className="wug-journal__text"> {journal.text} </p>
-              </Link>
+              {/* </Link> */}
+              </div>
             ))
           )}
         </section>

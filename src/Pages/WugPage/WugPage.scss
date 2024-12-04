@@ -106,3 +106,28 @@
         font-size: .625rem;
     }
 }
+
+.wugs_journals {
+    margin: 1rem;
+}
+
+.wug-journal {
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 2px solid $wugorange;
+    border-radius: .3125rem;
+    // background-color: red;
+
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        margin: 0.5rem;
+    }
+
+    &__text {
+        margin: 0.5rem;
+    }
+}
