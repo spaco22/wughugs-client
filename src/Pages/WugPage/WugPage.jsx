@@ -136,8 +136,12 @@ console.log(formattedJournals);
       </section>
 
       <div className="wug-page__buttons">
-        <button className="wug-page__delete" onClick={ handleDelClick } >Delete</button>
-        <button className="wug-page__edit" onClick={ handleEditClick } >Edit</button>
+        <div className="wug-page__buttons-div">
+        <button className="wug-page__delete" onClick={ handleDelClick } >Delete Wug</button>
+        <button className="wug-page__edit" onClick={ handleEditClick } >Edit Wug</button>
+        </div>
+
+        <button className="wug-page__edit" onClick={ handleEditClick } > Add Entry </button>
       </div>
 
       <section className="wugs-journals">

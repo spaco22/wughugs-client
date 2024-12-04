@@ -8,8 +8,14 @@
 
     &__buttons {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         gap: 1rem;
+
+        &-div {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
     }
 
     @include tablet {
@@ -107,12 +113,12 @@
     }
 }
 
-.wugs_journals {
-    margin: 1rem;
-}
+// .wugs_journals {
+//     margin: 1rem;
+// }
 
 .wug-journal {
-    margin: 1rem;
+    margin: 1rem 0;
     padding: 0.5rem;
     border: 2px solid $wugorange;
     border-radius: .3125rem;
