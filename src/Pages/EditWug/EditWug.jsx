@@ -165,9 +165,9 @@ function EditWug() {
         </label>
         <input
           type="text"
-          className="wug-form__species"
+          className="wug-form__age"
           name="age"
-          defaultValue={wug.wug_species}
+          defaultValue={wug.wug_age}
         />
 
         <div className="wug-form__buttons">

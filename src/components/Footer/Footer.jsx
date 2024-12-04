@@ -9,7 +9,7 @@ function Footer() {
   return (
     <footer className="footer">
       <NavLink className="footer__title-link" to="/">
-        <h2 className="footer__title">Wug Hugs</h2>
+        <h2 className="footer__title">Wug Hug's</h2>
       </NavLink>
 
       <nav className="footer__nav">
